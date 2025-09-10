@@ -1,5 +1,11 @@
-.App {
+/* .App {
   text-align: center;
+} */
+
+html, body, #root, .App {
+  margin: 0;
+  padding: 0;
+  background: #000; /* globale achtergrond */
 }
 
 .App-logo {
@@ -14,14 +20,12 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background: transparent; /* geen grijs */
+  min-height: 0;           /* hero zelf regelt hoogte */
+  display: block;          /* geen flex-container meer */
+  padding: 0;
+  margin: 0;
+  color: #FFF;
 }
 
 .App-link {

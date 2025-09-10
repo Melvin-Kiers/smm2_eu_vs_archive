@@ -1,3 +1,17 @@
+/* html, body {
+  overflow-x: hidden !important;
+} */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+}
+
+html {
+  overflow-y: scroll;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +19,1501 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  cursor: url(mario_hand.png) 12 12, auto;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* .container {
+  max-width: auto !important;
+} */
+
+.custom-navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 10px 20px;
+}
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.navbar-links-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.btn.btn-purple {
+  background-color:#7E66B2;
+  color: white;
+}
+
+.btn.btn-purple:hover {
+  background-color:#624c91;
+}
+
+.navbar-bg-svg {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  height: 80px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  position: relative;
+}
+
+.navbar-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+  color: #f89c1c;
+}
+
+.hero-section {
+  position: relative;
+  background-color: #090909;
+  color: #fff;
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding-bottom: 0; /* geen extra padding meer nodig */
+}
+
+.hero-content {
+  cursor: url(smm_cursor.png), pointer;
+  position: relative;
+  display: inline-block;
+}
+
+.landing-spot {
+  position: relative;
+  display: inline-block;
+}
+
+/* Het vogeltje */
+.drop-in-out {
+  position: absolute;
+  top: -150px;   /* start hoog boven de i */
+  left: -6px;       /* recht boven de i */
+  width: 21px;
+  opacity: 0;
+  animation: dropHoldUp 6s ease forwards;
+}
+
+/* Animatie: vallen -> blijven -> wegvliegen */
+@keyframes dropHoldUp {
+  0% {
+    top: -150px;
+    opacity: 0;
+  }
+  20% {
+    top: -20px;  /* net boven de i */
+    opacity: 1;
+  }
+  70% {
+    top: -20px;
+    opacity: 1;
+  }
+  100% {
+    top: -150px;
+    opacity: 0;
+  }
+}
+
+.no-break {
+  white-space: nowrap;
+}
+
+section.leaderboard-section {
+  z-index: 3;
+}
+
+section.info-section .svg-wrapper {
+  width: 100%;
+  padding-bottom: 12%; /* dit is je aspect ratio */
+  overflow: hidden;
+  /* margin-bottom: -30px; */
+  position: relative;
+}
+
+.svg-wrapper {
+  width: 100%;
+  padding-bottom: 12%; /* dit is je aspect ratio */
+  overflow: hidden;
+  /* margin-bottom: -30px; */
+  z-index: 2;
+}
+
+.userpage-container {
+  background-image: url(https://mario.wiki.gallery/images/monobook-darkbg.webp) !important;
+  background-repeat: repeat !important;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  flex-direction: column;  
+}
+
+.svg-wrapper img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  object-fit: fill;
+  display: block;
+  pointer-events: none;
+}
+
+.marioWalking {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -150%);
+  width: 4%;
+  z-index: 0;
+  animation: walkLeft 20s linear;
+  animation-iteration-count: infinite;
+}
+
+.marioWalking img {
+  width: 70%;
+  height: auto;
+}
+
+@keyframes walkLeft {
+  0% {
+    left: 0%;
+    opacity: 0;
+  }
+  5% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0;
+  } 
+  100% {
+    left: 100%;
+    opacity: 0
+  }
+}
+
+
+/* Extra: responsive vogel schalen */
+@media (max-width: 600px) {
+  .drop-in-out {
+    width: 14px; /* kleiner op mobiel */
+  }
+}
+
+.section-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  pointer-events: none; /* zodat hij geen muisinteractie blokkeert */
+}
+
+.section-divider-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  pointer-events: none; /* zodat hij geen muisinteractie blokkeert */
+}
+
+/* .hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 20%;
+  background: url('/public/images/bottomGroundSet.svg') no-repeat center bottom;
+  background-size: 100% auto;
+  z-index: 1;
+} */
+
+.hero-content {
+  margin-left: 25%;
+  margin-right: 25%;
+  padding: 0 20px;
+  -webkit-animation: bounce-top 1.5s both;
+	animation: bounce-top 1.5s both;
+}
+
+@keyframes bounce-top {
+  0% {
+    -webkit-transform: translateY(-45px);
+            transform: translateY(-45px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    opacity: 1;
+  }
+  24% {
+    opacity: 1;
+  }
+  40% {
+    -webkit-transform: translateY(-24px);
+            transform: translateY(-24px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  65% {
+    -webkit-transform: translateY(-12px);
+            transform: translateY(-12px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  82% {
+    -webkit-transform: translateY(-6px);
+            transform: translateY(-6px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  93% {
+    -webkit-transform: translateY(-4px);
+            transform: translateY(-4px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  25%,
+  55%,
+  75%,
+  87% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    opacity: 1;
+  }
+}
+
+.hero-content h1 {
+  font-size: 64px;
+  font-family: 'SMM2';
+}
+
+.hero-content span.orange {
+  color: #DB7B00;
+}
+
+.hero-section p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #3e8e41;
+}
+
+.top-decor-svg {
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.custom-navbar {
+  position: fixed;
+  top: 80px;
+  width: 100%;
+  z-index: 90;
+}
+
+.info-section {
+  background-color: #f1f1f1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* .info-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/public/images/underGround1.svg') no-repeat bottom center;
+  background-size: 100% auto;
+  z-index: 2;
+  pointer-events: none;
+} */
+
+.info-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: 'SMM2';
+  font-size: 42px;
+  color: #000;
+}
+
+
+.section-subtitle {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.section-description {
+  max-width: 900px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.highlight {
+  color: #f39c12;
+}
+
+.MatchesStatsChart {
+  justify-items: center;
+}
+
+.medal-icon:first-child::before {
+  content: "";
+  display: inline-block;
+  width: 72px;
+  height: 72px;
+  background-image: url('/public/images/medalGoldRibbon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 0.5rem;
+}
+
+.medal-icon:last-child::after {
+  content: "";
+  display: inline-block;
+  width: 72px;  
+  height: 72px;
+  background-image: url('/public/images/medalGoldRibbon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: 0.5rem;
+}
+
+.medal-icon::before,
+.medal-icon::after {
+  content: none;
+}
+
+.info-card {
+  flex: 1;
+  background-color: #003366;
+  color: white;
+  position: relative;
+  border-radius: 16px;
+  padding: 2rem 1.5rem 3rem 1.5rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 250px;
+  background-image: url('/public/images/dottedBG.svg');
+  background-size: 280px;
+  z-index: 1;
+}
+
+.card-title {
+  font-weight: 700;
+  margin-bottom: 0.5rem !important;
+  font-family: "puffin-display", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 22px;
+}
+
+.card-text {
+  font-size: 16px;
+  font-family: "Arial";
+  font-weight: 400;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.card-number {
+  align-self: flex-end;
+  position: relative;
+  margin-top: auto;
+  font-size: 48px;
+  font-weight: bold;
+  font-family: 'SMM2';
+  color: #fff;
+}
+
+.bg-infoSection {
+  background-color: #E9E9EC;
+}
+
+span.highlightText {
+  color: #DB7B00;
+}
+
+@media (max-width: 992px) {
+  .hero-content h1 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 992px) {
+  .twitch-slider h2 {
+    font-size: 22px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-news {
+    font-size: 28px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-content {
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .medal-icon:first-child::before, .medal-icon:last-child::after {
+    width: 64px; 
+    height: 64px;
+  }
+}
+
+@media (max-width: 574px) {
+  .medal-icon:first-child::before, .medal-icon:last-child::after {
+    width: 32px; 
+    height: 32px;
+  }
+}
+
+.twitch-slider h2 {
+  font-size: 42px;
+  font-family: 'SMM2';
+}
+
+.twitch-slider span {
+  color: #DB7B00;
+}
+
+.twitch-slider {
+  position: relative;
+  overflow: visible; /* zodat de pseudo elementen zichtbaar zijn buiten de slider */
+    background-image: 
+    url('/public/images/dottedBG.svg'); /* patroon bovenop */
+  background-repeat: repeat, no-repeat;
+  background-size: 350px 320px, cover;
+}
+
+.twitch-slider::before,
+.twitch-slider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 40px;  /* breedte van de fade */
+  height: 100%;
+  pointer-events: none; /* zorgen dat de gradient niet de interactie blokkeert */
+  z-index: 10;
+}
+
+.twitch-slider::before {
+  left: 0;
+  background: linear-gradient(to right, black, transparent);
+}
+
+.twitch-slider::after {
+  right: 0;
+  background: linear-gradient(to left, black, transparent);
+}
+
+.news-section {
+  background-image: 
+    url('/public/images/dottedBG.svg'), /* patroon bovenop */
+    linear-gradient(to bottom, #000000 0%, #012D5E 100%); /* gradient eronder */
+  background-repeat: repeat, no-repeat;
+  background-size: 350px 320px, cover;
+}
+
+.section-news {
+  font-size: 42px;
+  font-family: 'SMM2';
+  color: white;
+  text-align: left;
+  z-index: 5;
+}
+
+.section-news span{
+  color: #DB7B00;
+}
+
+.news-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  border-style: solid;
+  border-color: #EDCE29;
+  border-width: 3px;
+}
+
+.news-text-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.6); /* zwarte transparante achtergrond */
+  color: white;
+}
+
+.row.align-items-stretch {
+  display: flex;
+  align-items: stretch; /* Zorgt dat kolommen even hoog zijn */
+}
+
+.news-card.h-100 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* indien nodig */
+}
+
+.news-image {
+  aspect-ratio: 16 / 9;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.CWearth {
+  position: absolute;
+  top: 0;
+  right: 5%;
+  width: 200px;
+  height: auto;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* .CWmoon {
+  position: absolute;
+  bottom: 150px;
+  left: 5%;
+  width: 150px;
+  pointer-events: none;
+  z-index: 0;
+} */
+
+.leaderboard-section {
+  background-image: url(https://mario.wiki.gallery/images/monobook-darkbg.webp) !important;
+  background-repeat: repeat !important;
+  color: #FFF;
+}
+
+.leaderboard-title {
+  text-align: start;
+}
+
+.leaderboard-title span {
+  color: #DB7B00;
+}
+
+h2.leaderboard-title {
+  font-family: SMM2;
+  font-size: 42px;
+}
+
+p.leaderboard-intro {
+  font-family: "Arial";
+  font-size: 18px;
+  font-weight: 700;;
+}
+
+.leaderboard-intro a {
+  color:#DB7B00;
+}
+
+.leaderboard-intro a:hover {
+  color:#b46907;
+}
+
+.playerGrid {
+  font-size: 18px;
+}
+
+.player-row {
+  background-color: white;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  padding: 10px;
+  transition: box-shadow 0.2s ease;
+}
+
+.player-row:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.playerName {
+  color: #000000;
+  font-family: "puffin-display", sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.playerPB {
+  width: 80px;
+  text-align: right;
+  font-size: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.pb-label {
+  font-size: 16px;
+  font-weight: normal;
+  color: #787878;
+  margin-bottom: 4px;
+  font-family: 'SMM2';
+}
+
+.pb-value {
+  font-size: 28px;
+  color: #6D4FA7;
+  font-family: 'SMM2';
+  font-weight: 300;
+}
+
+.player-row-custom {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white; /* witte achtergrond blijft */
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.player-row-custom::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -110%;
+  height: 100%;
+  width: 120%; /* iets breder voor schuine beweging */
+  background: linear-gradient(90deg, rgb(255, 255, 255), rgb(235, 235, 235)); /* van grijs naar paars */
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+  z-index: 0;
+}
+
+
+.player-row-custom:hover::before {
+  left: 0;
+}
+
+
+.player-row-custom > * {
+  position: relative; /* content blijft boven de overlay */
+  z-index: 1;
+}
+
+
+@keyframes hoverBounce {
+  0% { transform: translateY(0); }
+  40% { transform: translateY(-4px); }
+  60% { transform: translateY(2px); }
+  100% { transform: translateY(0); }
+}
+
+/* Cirkel met nummer */
+.player-rank {
+  width: 70px;
+  text-align: left;
+}
+
+/* Cirkel blijft zoals je had */
+.circle-number {
+  width: 62px;
+  height: 62px;
+  background-color: #7E66B2;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-family: SMM2;
+  font-size: 36px;
+}
+
+/* Gouden rand voor top 3 */
+.top-three {
+  border: 6px solid #BDA1EE;
+}
+
+/* Vlag */
+.player-flag {
+  width: 40px;
+  height: 28px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Score rechts uitgelijnd */
+.playerPB {
+  width: 80px;
+  text-align: right;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.playerName {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centreer de hele sectie */
+}
+
+.playerName > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;               /* ← belangrijk */
+  max-width: 200px;          /* ← of wat je wil */
+  text-align: left;
+}
+
+.pieChart {
+  text-align: start;
+  font-family: SMM2;
+  font-size: 42px;
+  max-width: 100%;
+}
+
+.pieChart canvas {
+  width: 100% !important;
+  height: 100% !important;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.playerInfoName {
+  color: white;
+  font-family: "SMM2";
+  font-family: 700;
+  font-size: 36px;
+}
+
+@media screen and (max-width: 768px) {
+  .playerInfoName {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .pieChart {
+    max-width: 100%;   /* neemt 90% van het scherm in */
+    margin: 0 auto;     /* centreert hem */
+  }
+}
+
+.row.g-3 > .col-12.col-lg-4,
+.row.g-3 > .col-12.col-lg-6 {
+  display: flex;
+  flex-direction: column;
+}
+
+.row.g-3 > .col-12.col-lg-4 > .info-box,
+.row.g-3 > .col-12.col-lg-6 > .info-box {
+  flex-grow: 1;
+}
+
+.info-box {
+  background-color: white;
+}
+
+
+.info-box:hover {
+  background-color: #eaeaea;
+}
+
+.mii-container {
+  width: 100%; /* zorg dat container zich uitstrekt */
+  text-align: left; /* of 'start' als je RTL talen gebruikt */
+}
+
+.mii-image {
+  display: block;       /* niet inline, voorkomt centering */
+  margin: 0;            /* geen auto-marges */
+  border-radius: 8px;
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
+/* Mobiele optimalisatie */
+@media (max-width: 576px) {
+  .mii-image {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+.modal-body {
+  font-size: 18px;
+}
+
+/* in je CSS */
+.modal-open {
+  overflow: hidden;
+}
+
+
+/* Timeline container */
+
+section.bg-timeline {
+  position: relative;
+  background-color: #56AFFF; /*OF WIT*/
+  background-image: url('/public/images/smm2_clouds.png');
+  z-index: 0;
+  overflow: hidden;
+}
+
+.vtl-timeline {
+  position: relative;
+  /* max-width: 1440px; */
+  margin: 0 auto;
+  /* background-color: #56AFFF; */
+  text-align: start;
+}
+
+.vtl-timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 51, 102, 0) 0%,   /* Transparant bovenaan */
+    rgba(0, 51, 102, 1) 5%,  /* Volle kleur vanaf hier */
+    rgba(0, 51, 102, 1) 95%,  /* Hele lijn verder volledig zichtbaar */
+    rgba(0, 51, 102, 0) 100%   /* Transparant bovenaan */
+  );
+}
+
+/* Timeline entry wrapper */
+.vtl-entry {
+  padding: 10px 30px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+  z-index: 0;
+}
+
+.vtl-entry.vtl-left {
+  padding-left: 0;
+}
+
+.vtl-entry.vtl-right {
+  padding-right: 0;
+}
+
+.vtl-entry::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -13px;
+  background-color: rgb(0, 0, 0);
+  border: 4px solid #DB7B00;
+  top: 86px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Align left */
+.vtl-left {
+  left: 0;
+}
+
+.vtl-right {
+  left: 50%;
+}
+
+/* Arrows */
+.vtl-left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 90px;
+  width: 0;
+  z-index: 1;
+  right: 21px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent rgb(0, 51, 102);
+}
+
+.vtl-right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 90px;
+  width: 0;
+  z-index: 1;
+  left: 20px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent rgb(0, 51, 102) transparent transparent;
+}
+
+.vtl-right::after {
+  left: -12px;
+}
+
+/* Content box */
+.vtl-content {
+  padding: 20px 30px;
+  background-color: rgb(0, 51, 102);
+  position: relative;
+  border-radius: 6px;
+  background-image: url('/public/images/dottedBG.svg');
+  color: #FFF;
+}
+
+@media screen and (min-width: 993px) {
+  /* schuif hele entry omhoog behalve de eerste */
+  .vtl-entry:not(:first-child) {
+    margin-top: -140px; /* pas waarde aan naar smaak */
+  }
+}
+
+.vtl-content h3 {
+  font-size: 24px;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.vtl-content p {
+  font-family: "Arial";
+  font-weight: 700;
+  white-space: pre-line;
+}
+
+.vtl-timeline-date h2{
+  font-size: 32px;
+  font-family: "SMM2";
+}
+
+/* .vtl-entry.vtl-left {
+  padding-left: 0;
+}
+
+.vtl-entry.vtl-right {
+  padding-right: 0;
+} */
+
+/* Responsive */
+@media screen and (max-width: 992px) {
+  .vtl-timeline::after {
+    left: 31px;
+  }
+
+  .vtl-entry {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+  .vtl-entry::before {
+    left: 60px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent rgb(0, 51, 102) transparent transparent;
+  }
+
+  .vtl-left::after,
+  .vtl-right::after {
+    left: 7px;
+  }
+
+  .vtl-right {
+    left: 0%;
+  }
+  
+  .vtl-timeline-date h2{
+    font-size: 24px;
+    margin-bottom: 0px;
+  }
+
+  .vtl-entry.vtl-left {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 0px;
+  }
+
+  .vtl-entry.vtl-right {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 0px;
+  }
+}
+
+.vtl-timeline-date {
+  color: #DB7B00;
+  margin-bottom: 1rem;
+}
+
+.vtl-title {
+  color: rgb(255, 255, 255);
+  background-color: #003366;
+  padding: 20px 30px;
+  border-radius: 10px;
+  background-image: url('/public/images/dottedBG.svg');
+  background-size: 400px;
+}
+
+.vtl-title p {
+  font-family: "Arial";
+  font-weight: 700;
+}
+
+.vtl-title span{
+  color: #DB7B00;
+}
+
+.vtl-title h2 {
+  font-family: "SMM2";
+  font-size: 42px;
+}
+
+.vtl-readmore {
+  margin-top: 10px;
+  background: #ffffff;
+  color: #121212;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.vtl-readmore:hover {
+  background: #DB7B00;
+  color: white;
+}
+
+.summary-vtl {
+  flex: 1;
+  background-color: #003366;
+  color: white;
+  position: relative;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* min-height: 230px; */
+  background-image: url('/public/images/dottedBG.svg');
+  background-size: 400px;
+}
+
+.summary-vtl p {
+  color: white;
+  font-family: "Arial";
+  font-weight: 700;
+  white-space: pre-line;
+}
+
+.CWrobot {
+  height: auto;
+  width: 100px;
+  position: absolute;
+  left: 20px;
+  z-index: 10;
+  transform: rotate(180deg);
+}
+
+.piranhaPlant {
+  height: auto;
+  width: 45px;
+  position: absolute;
+  right: 50px;
+  z-index: 5;
+  top: 8px;
+  transform: rotate(270deg); /* 270 graden gedraaid */
+  animation: slide-horizontal 2.5s linear infinite alternate-reverse both;
+}
+
+@keyframes slide-horizontal {
+  0% {
+    right: 0;
+  }
+  50% {
+    right: 110px;
+  }
+  100% {
+    right: 110px;
+  }
+}
+
+.pipePlant {
+  position: relative;
+}
+
+.pipe {
+  height: auto;
+  width: 100px;
+  position: absolute;
+  right: 0;
+  z-index: 10;
+  transform: rotate(180deg);
+}
+
+@media screen and (max-width: 1700px) {
+  .CWrobot {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .pipePlant {
+    display: none;
+  }
+}
+
+.vtl-image_pxArt {
+  position: absolute;
+  bottom: 0px;
+  right: 20px;
+  height: auto;
+  width: 50px;
+}
+
+.hill {
+  position: relative;
+}
+
+.smallHill {
+  position: absolute;
+  left: 0;
+  top: 200px;
+  height: 70px;
+  width: auto;
+  transform: rotate(90deg) translateY(-100%);
+  transform-origin: top left;
+  pointer-events: none;
+}
+
+.cta-box {
+  background: white;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 10px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.cta-box h4 {
+  font-family: "SMM2";
+  font-size: 22px;
+  color: #121212;
+}
+
+.cta-box p {
+  color: #121212;
+}
+
+.cta-btn {
+  background-color: #DB7B00;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 25px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #b96200;
+  transform: scale(1.05);
+}
+
+.countryDistribution h2{
+  font-family: "SMM2";
+  font-size: 42px;
+}
+
+.countryDistribution p {
+  font-family: "Arial";
+  font-weight: 700;
+  font-size: 18px;
+}
+
+@media (max-width: 992px) {
+  .countryDistribution{
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .player-flag {
+    width: 32px;
+    height: 22px;
+  }
+
+  .circle-number {
+    width: 50px;
+    height: 50px;
+    font-size: 26px;
+  }
+
+  .top-three {
+    border: 4px solid #BDA1EE;
+  }
+
+  .playerName {
+    font-size: 18px;
+  }
+  
+  .pb-value {
+    font-size: 20px;
+  }
+
+  h2.leaderboard-title {
+    font-size: 28px;
+  }
+
+  .CWearth {
+    width: 80px;
+    height: auto;
+  }
+
+  .playerName > div {
+    gap: 8px;
+  }
+
+  .filters-container {
+    flex-direction: column;
+  }
+
+  .countryDistribution h2{
+    font-size: 28px;
+  }
+
+  .countryDistribution {
+    margin-bottom: 50px;
+  }
+
+  .vtl-title h2 {
+    font-size: 28px;
+  }
+
+  section.bg-timeline {
+    background-size: 300px 300px;
+  }
+
+  .marioWalking {
+    display: none;
+  }
+}
+
+#music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: purple;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+  z-index: 1000; /* altijd boven andere content */
+}
+
+#music-btn:hover {
+  background-color: darkviolet;
+}
+
+section.video-section {
+  color: #fff;
+  text-align: center;
+  position: relative;
+  background-image: url(https://mario.wiki.gallery/images/monobook-darkbg.webp) !important;
+  background-repeat: repeat !important;
+}
+
+section.video-section .section-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #FFFFFF;
+  font-size: 42px;
+}
+
+section.video-section .section-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  color: #ccc;
+}
+
+/* Card style */
+.video-card {
+  background: #2c2c3c;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.iframe-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.iframe-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.card-body {
+  padding: 15px 20px !important;
+  text-align: left;
+  background-color: white;
+  /* background-image: url('/public/images/dottedBG.svg');
+  background-size: 280px;
+  z-index: 1; */ 
+}
+
+.card-body h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #6D4FA7;
+  font-family: "SMM2";
+  font-weight: 300;
+}
+
+.card-body p {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  color: #ddd;
+}
+
+.extra-info {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: #000000;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 5px 10px;
+  border-radius: 8px;
 }
