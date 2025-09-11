@@ -462,7 +462,7 @@ const Leaderboard = () => {
   const visiblePlayers = filteredPlayers.slice(0, visibleCount);
 
   return (
-    <section className="leaderboard-section pt-5 position-relative">
+    <section className="leaderboard-section pt-5 position-relative" id="leaderboard-section">
       <div className="container">
         <div className="row">
           <div className="col-md-12">
@@ -596,7 +596,7 @@ const Leaderboard = () => {
                   className="btn btn-purple"
                   onClick={() => setVisibleCount(filteredPlayers.length)}
                 >
-                  Show all
+                  Show all ({filteredPlayers.length})
                 </button>
               )}
             </div>

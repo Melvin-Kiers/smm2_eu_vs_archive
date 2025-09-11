@@ -27,7 +27,12 @@ const YouTubeCards = () => {
       <div className="container">
         <h2 className="section-title pt-5">EU VS Highlights</h2>
         <p className="section-subtitle">
-          Bekijk hier onze leukste momenten en hoogtepunten uit de streams.
+          This section provides a preview of some of the exciting clips available.
+          If you’d like to explore the full range of content, we invite you to visit <a href="https://vscliptournament.com" className="clipsLink" target="_blank" rel="noreferrer">vscliptournament.com. </a> 
+          There, you will find complete tournaments, curated highlights, and a growing library of match footage.
+          It’s the best place to discover new players and relive unforgettable moments.
+          Our community continues to expand, and the collection grows every week.
+          Start exploring today and experience the full tournament atmosphere.
         </p>
 
         <div className="row">
@@ -51,6 +56,9 @@ const YouTubeCards = () => {
               </div>
             </div>
           ))}
+        </div>
+        <div className="smb1_platform">
+          <img src="/images/smb1_platform.png" alt="" />
         </div>
       </div>
       <div className="svg-wrapper">

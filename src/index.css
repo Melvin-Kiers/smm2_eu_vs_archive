@@ -1434,23 +1434,30 @@ section.bg-timeline {
 
 section.video-section {
   color: #fff;
-  text-align: center;
   position: relative;
   background-image: url(https://mario.wiki.gallery/images/monobook-darkbg.webp) !important;
   background-repeat: repeat !important;
 }
 
-section.video-section .section-title {
+section.video-section h2.section-title {
   font-size: 2rem;
-  margin-bottom: 10px;
   color: #FFFFFF;
   font-size: 42px;
+  justify-content: flex-start !important;
 }
 
 section.video-section .section-subtitle {
-  font-size: 1.1rem;
+  font-size: 18px;
   margin-bottom: 40px;
   color: #ccc;
+}
+
+.clipsLink {
+  color: #DB7B00;
+}
+
+.clipsLink a:hover {
+  color:#b46907;
 }
 
 /* Card style */
@@ -1516,4 +1523,28 @@ section.video-section .section-subtitle {
   background: rgba(0, 0, 0, 0.1);
   padding: 5px 10px;
   border-radius: 8px;
+}
+
+.smb1_platform {
+  bottom: 15%;
+  left: 50%; /* zet hem in het midden van de container */
+  transform: translateX(-50%); /* corrigeert zodat het element echt gecentreerd staat */
+  position: absolute;
+  animation: slide-platform 12s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite alternate both;
+}
+
+@keyframes slide-platform {
+  0% {
+    transform: translateX(-50%) translateX(-400px); /* naar links */
+  }
+  100% {
+    transform: translateX(-50%) translateX(400px); /* naar rechts */
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .smb1_platform {
+    display: none;
+  }
 }

@@ -27,7 +27,7 @@ const UserPage = () => {
       cache: "no-store",
     })
       .then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch player info");
+        if (!res.ok) throw new Error("Failed to fetch player info, please wait a few seconds before refreshing.");
         return res.json();
       })
       .then((data) => setPlayerInfo(data))
