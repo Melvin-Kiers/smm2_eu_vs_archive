@@ -1548,3 +1548,14 @@ section.video-section .section-subtitle {
     display: none;
   }
 }
+
+section.user-overview {
+  background-image: url(https://mario.wiki.gallery/images/monobook-darkbg.webp) !important;
+  background-repeat: repeat !important;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  flex-direction: column;
+  z-index: 99999; 
+}

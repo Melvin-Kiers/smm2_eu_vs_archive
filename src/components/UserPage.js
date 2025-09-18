@@ -75,7 +75,7 @@ const UserPage = () => {
       <div className="container py-4">
         {/* Header row */}
         <div className="d-flex justify-content-between align-items-center mb-4">
-          <button className="btn btn-secondary" onClick={() => navigate("/")}>
+          <button className="btn btn-secondary" onClick={() => navigate("/user")}>
             ← Back
           </button>
 

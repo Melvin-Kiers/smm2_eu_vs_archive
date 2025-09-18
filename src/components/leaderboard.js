@@ -385,11 +385,14 @@ import Papa from "papaparse";
 import CountryDistributionChart from "./CountryDistributionChart";
 import { useNavigate } from "react-router-dom";
 
+
 const Leaderboard = () => {
   const [players, setPlayers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [visibleCount, setVisibleCount] = useState(5);
   const [countryFilter, setCountryFilter] = useState(null);
+  const [userCode, setUserCode] = useState("");
+
 
   const navigate = useNavigate();
 
@@ -496,33 +499,55 @@ const Leaderboard = () => {
             </p>
 
             {/* Filters */}
-            <div className="filters-container d-flex mb-3" style={{ gap: "10px" }}>
-              <div style={{ flex: "1" }}>
-                <select
-                  className="form-select"
-                  value={countryFilter || ""}
-                  onChange={(e) => setCountryFilter(e.target.value || null)}
-                >
-                  <option value="">🌍 All countries</option>
-                  {uniqueCountries.map((country, i) => (
-                    <option key={country + i} value={country}>
-                      {country}
-                    </option>
-                  ))}
-                </select>
+            <div className="filters-container d-flex flex-column gap-2 mb-3">
+              {/* Eerste rij: country + searchTerm */}
+              <div className="d-flex gap-2">
+                <div style={{ flex: "1" }}>
+                  <select
+                    className="form-select"
+                    value={countryFilter || ""}
+                    onChange={(e) => setCountryFilter(e.target.value || null)}
+                  >
+                    <option value="">🌍 All countries</option>
+                    {uniqueCountries.map((country, i) => (
+                      <option key={country + i} value={country}>
+                        {country}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div style={{ flex: "2" }}>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Search players..."
+                    value={searchTerm}
+                    onChange={(e) => {
+                      setSearchTerm(e.target.value);
+                      setVisibleCount(5);
+                    }}
+                  />
+                </div>
               </div>
 
-              <div style={{ flex: "2" }}>
+              {/* Tweede rij: userCode + knop */}
+              <div className="d-flex gap-2">
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Search players..."
-                  value={searchTerm}
-                  onChange={(e) => {
-                    setSearchTerm(e.target.value);
-                    setVisibleCount(5);
-                  }}
+                  placeholder="Enter 9-char ID..."
+                  maxLength={9}
+                  value={userCode}
+                  onChange={(e) => setUserCode(e.target.value.toUpperCase())}
                 />
+                <button
+                  className="btn btn-primary"
+                  disabled={userCode.length !== 9}
+                  onClick={() => navigate(`/user/${userCode}`)}
+                >
+                  Search
+                </button>
               </div>
             </div>
 

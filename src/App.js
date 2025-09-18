@@ -44,6 +44,8 @@ import UserPage from "./components/UserPage";
 import Leaderboard from './components/leaderboard';
 import VerticalTimeline from "./components/VerticalTimeline";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import UserOverview from "./components/UserOverview"; // overzichtspagina
+
 
 function App() {
   return (
@@ -66,6 +68,7 @@ function App() {
           />
 
           {/* UserPage layout: alleen user data */}
+          <Route path="/user" element={<UserOverview />} /> 
           <Route path="/user/:makerId" element={<UserPage />} />
         </Routes>
       </Router>
