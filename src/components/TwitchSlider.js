@@ -19,6 +19,24 @@ const youtubeClips = [
     description: "Klassiek hilarisch moment tijdens het streamen.",
     extra: "Category: Funny Clips",
   },
+  {
+    title: "POW moment!",
+    youtubeId: "zuzCAx1Goqc",
+    description: "Een iconisch Mario moment met de POW block.",
+    extra: "Category: Mario Bros",
+  },
+  {
+    title: "The real way to kill your opponents",
+    youtubeId: "3GX5Y2pQpPs",
+    description: "Een slimme strategie in SMB1 multiplayer.",
+    extra: "Category: Speedrun",
+  },
+  {
+    title: '"WHY ARE YOU LETTING TOADETTE WIN!!!!!!??????"',
+    youtubeId: "z8-rSUxdVoU",
+    description: "Klassiek hilarisch moment tijdens het streamen.",
+    extra: "Category: Funny Clips",
+  },
 ];
 
 const YouTubeCards = () => {

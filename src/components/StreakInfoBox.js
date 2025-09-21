@@ -1,4 +1,3 @@
-// components/StreakInfoBox.js
 import React from "react";
 
 const StreakInfoBox = ({ userInfo }) => {
@@ -23,25 +22,9 @@ const StreakInfoBox = ({ userInfo }) => {
     : null;
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        gap: "1rem",
-        width: "100%",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "0.5rem",
-          textAlign: "left",  // Zorgt dat tekst links uitgelijnd is
-          flex: 1 // zodat het genoeg ruimte neemt en de pijl rechts blijft
-        }}
-      >
-        <div style={{ fontWeight: "bold", fontSize: "1.2rem" }}>{name}</div>
+    <div className="streak-box">
+      <div className="streak-text-container">
+        <div className="streak-player-name">{name}</div>
         <div>{streakText}</div>
       </div>
 
@@ -49,7 +32,7 @@ const StreakInfoBox = ({ userInfo }) => {
         <img
           src={arrowSrc}
           alt={isWinning ? "Up Arrow" : "Down Arrow"}
-          style={{ width: "3em", height: "auto" }}
+          className="streak-arrow"
         />
       )}
     </div>

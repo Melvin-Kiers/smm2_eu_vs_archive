@@ -45,6 +45,8 @@ import Leaderboard from './components/leaderboard';
 import VerticalTimeline from "./components/VerticalTimeline";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UserOverview from "./components/UserOverview"; // overzichtspagina
+import Footer from './components/Footer';
+
 
 
 function App() {
@@ -63,6 +65,7 @@ function App() {
                 <VerticalTimeline />
                 <TwitchSlider />
                 <MusicButton />
+                <Footer />
               </>
             }
           />

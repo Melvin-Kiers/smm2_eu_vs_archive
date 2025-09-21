@@ -493,6 +493,10 @@ const Leaderboard = () => {
               the leaderboard.
             </p>
             <p className="leaderboard-intro mb-4">
+              If your Maker ID is not listed, you can search for it using the 
+              search bar below or <a href="/user"> click here</a>.
+            </p>
+            <p className="leaderboard-intro mb-4">
               Please note that data updates are dependent on the Public API. As
               a result, it may sometimes take a little longer before the
               leaderboard is refreshed with the most recent statistics.
@@ -521,7 +525,7 @@ const Leaderboard = () => {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Search players..."
+                    placeholder="Search players by name..."
                     value={searchTerm}
                     onChange={(e) => {
                       setSearchTerm(e.target.value);

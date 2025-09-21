@@ -3,6 +3,7 @@ import React from "react";
 
 const KillsStatsBox = ({ userInfo }) => {
   const kills = Number(userInfo?.versus_kills) || 0;
+  const plays = Number(userInfo?.versus_plays) || 0;
   const killedByOthers = Number(userInfo?.versus_killed_by_others) || 0;
   const total = kills + killedByOthers;
 
@@ -10,6 +11,9 @@ const KillsStatsBox = ({ userInfo }) => {
 
   const killsPercent = total > 0 ? (kills / total) * 100 : 0;
   const deathsPercent = total > 0 ? (killedByOthers / total) * 100 : 0;
+
+  const killsPerGame = total > 0 ? (kills / plays).toFixed(2) : 0;
+  const DeathByOthersPerGame = total > 0 ? (killedByOthers / plays).toFixed(2) : 0;
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
@@ -53,6 +57,11 @@ const KillsStatsBox = ({ userInfo }) => {
               <div style={{ width: "15px", height: "15px", backgroundColor: "#FF6384" }}></div>
               <span>Killed by other players ({killedByOthers})</span>
             </div>
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", textAlign: "left", marginTop: "10px" }}>
+            <div><strong>Kills per game: </strong> ≈{killsPerGame}</div>
+            <div><strong>Death by others per game: </strong> ≈{DeathByOthersPerGame}</div>
           </div>
         </>
       )}

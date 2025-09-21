@@ -15,6 +15,7 @@ const PlayerInfoBox = ({ userInfo }) => {
         alignItems: "center",
         gap: "1rem",
         width: "100%",
+        marginTop: "18px",
       }}
     >
       {userInfo.mii_image && (
@@ -68,6 +69,9 @@ const PlayerInfoBox = ({ userInfo }) => {
         {/* Last played */}
         <div>
           <strong>Last played:</strong> {userInfo.last_active_pretty} (UTC)
+        </div>
+        <div>
+          <strong>PID:</strong> {userInfo.pid}
         </div>
       </div>
     </div>

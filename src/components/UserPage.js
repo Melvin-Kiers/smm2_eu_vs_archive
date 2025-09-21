@@ -74,15 +74,15 @@ const UserPage = () => {
     <div className="userpage-container">
       <div className="container py-4">
         {/* Header row */}
-        <div className="d-flex justify-content-between align-items-center mb-4">
+        <div className="d-flex justify-content-between align-items-center mb-3">
           <button className="btn btn-secondary" onClick={() => navigate("/user")}>
             ← Back
           </button>
 
           <h2 className="playerInfoName m-0 text-center flex-grow-1">User information about {playerInfo.name}</h2>
 
-          <button className="btn btn-primary" onClick={fetchPlayer}>
-            🔄 Refresh
+          <button className="btn btn-purple" onClick={fetchPlayer}>
+            Refresh profile
           </button>
         </div>
 

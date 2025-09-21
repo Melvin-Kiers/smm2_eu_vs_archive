@@ -1,4 +1,3 @@
-// components/ScoreBadgeBox.js
 import React from "react";
 
 const getImageSrc = (score) => {
@@ -21,33 +20,10 @@ const ScoreBadgeBox = ({ userInfo }) => {
   const textColor = getTextColor(score);
 
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <div style={{ position: "relative", width: 200, height: 200 }}>
-        <img
-          src={badgeSrc}
-          alt="rank"
-          style={{ width: "100%", height: "100%", objectFit: "contain" }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            top: "70%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            color: textColor,
-            fontWeight: "bold",
-            fontSize: "1rem",
-            textShadow: "0 0 5px rgba(0,0,0,0.5)",
-          }}
-        >
+    <div className="score-badge-box">
+      <div className="score-badge-wrapper">
+        <img src={badgeSrc} alt="rank" className="score-badge-image" />
+        <div className="score-badge-score" style={{ color: textColor }}>
           {score}
         </div>
       </div>

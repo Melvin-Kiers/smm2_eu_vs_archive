@@ -1,4 +1,3 @@
-// components/MedalBox.js
 import React from "react";
 
 const getMedalImage = (userInfo) => {
@@ -39,26 +38,12 @@ const MedalBox = ({ userInfo }) => {
   const medalText = getMedalText(userInfo);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        gap: "1rem",
-        width: "100%",
-      }}
-    >
-      <div style={{ textAlign: "left" }}>
-        <p style={{ margin: 0 }}>{medalText}</p>
+    <div className="medal-box">
+      <div className="medal-text">
+        <p>{medalText}</p>
       </div>
 
-      {medalImage && (
-        <img
-          src={medalImage}
-          alt="Medal"
-          style={{ width: "70px", height: "auto" }}
-        />
-      )}
+      {medalImage && <img src={medalImage} alt="Medal" className="medal-image" />}
     </div>
   );
 };

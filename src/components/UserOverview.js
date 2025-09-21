@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Papa from "papaparse";
 import { useNavigate } from "react-router-dom";
+import CountryDistributionChart from "./CountryDistributionChart";
 
 const UserOverview = () => {
   const [players, setPlayers] = useState([]);
@@ -8,7 +9,7 @@ const UserOverview = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [userCode, setUserCode] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [playersPerPage, setPlayersPerPage] = useState(20); // 🔹 standaard 20
+  const [playersPerPage, setPlayersPerPage] = useState(10); // 🔹 standaard 10
   const navigate = useNavigate();
 
   // 📥 CSV inladen
@@ -35,6 +36,11 @@ const UserOverview = () => {
         setPlayers(cleanedPlayers);
       });
   }, []);
+
+  // 📌 Scroll naar boven bij paginawissel
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
 
   // 📌 hash uit de URL lezen bij laden
   useEffect(() => {
@@ -68,19 +74,13 @@ const UserOverview = () => {
   const totalPages = Math.ceil(filteredPlayers.length / playersPerPage);
 
   return (
-    <>
-      <img src="/images/underGround1.png" alt="" className="section-divider-top" />
       <section className="user-overview pt-5">
         <div className="container">
-          <h2 className="mb-4">All Players</h2>
           <div className="d-flex justify-content-between align-items-center mb-3">
             {/* Links: terug knop */}
-            <button
-                className="btn btn-outline-primary"
-                onClick={() => navigate("/")}
-            >
-                ← Back to Homepage
-            </button>
+            <h2 className="leaderboard-title mb-2">
+              European PB <span>Leaderboard</span>
+            </h2>
 
             {/* Rechts: players per page selector */}
             <div className="d-flex align-items-center">
@@ -98,9 +98,41 @@ const UserOverview = () => {
                     <option value={25}>25</option>
                     <option value={50}>50</option>
                     <option value={filteredPlayers.length}>All</option>
-                    </select>
-                </div>
+                </select>
+            </div>
           </div>
+
+          <p className="leaderboard-intro mb-4">
+              Here you can view the PB leaderboard of all active and known VS
+              players. By clicking on a player’s profile, you’ll be able to see
+              their live statistics in real time. Most of the data shown here is
+              retrieved via the{" "}
+            <a
+              href="https://tgrcode.com/mm2/docs/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Super Mario Maker 2 Public API
+            </a>
+            .
+          </p>
+          <p className="leaderboard-intro mb-4">
+            To keep the leaderboard relevant, this leaderboard also makes use
+            of a connected Google Sheet. This sheet contains a curated list of
+            Maker IDs, and only players included in that list will appear on
+            the leaderboard.
+          </p>
+          <p className="leaderboard-intro mb-4">
+            Please note that data updates are dependent on the Public API. As
+            a result, it may sometimes take a little longer before the
+            leaderboard is refreshed with the most recent statistics.
+          </p>
+
+          <button
+              className="btn btn-purple my-3"
+              onClick={() => navigate("/")}>
+              ← Back to Homepage
+          </button>
 
           {/* Filters */}
           <div className="filters-container d-flex flex-column gap-2 mb-3">
@@ -194,30 +226,80 @@ const UserOverview = () => {
           })}
 
           {/* Pagination controls */}
-          <div className="d-flex justify-content-between align-items-center mt-3">
-            <button
-              className="btn btn-secondary"
-              onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
-              disabled={currentPage === 1}
-            >
-              ← Prev
-            </button>
+          <div className="d-flex justify-content-between align-items-center mt-3 text-white gap-2">
+            {/* Linkerkant: First + Prev */}
+            <div className="d-flex gap-2">
+              {currentPage > 1 && (
+                <button
+                  className="btn btn-outline-light"
+                  onClick={() => setCurrentPage(1)}
+                >
+                  « First
+                </button>
+              )}
 
+              <button
+                className="btn btn-secondary"
+                onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
+                disabled={currentPage === 1}
+              >
+                ← Prev
+              </button>
+            </div>
+
+            {/* Middenstuk */}
             <span>
               Page {currentPage} of {totalPages}
             </span>
 
-            <button
-              className="btn btn-primary"
-              onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
-              disabled={currentPage === totalPages}
-            >
-              Next →
-            </button>
+            {/* Rechterkant: Next + Last */}
+            <div className="d-flex gap-2">
+              <button
+                className="btn btn-primary"
+                onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
+                disabled={currentPage === totalPages}
+              >
+                Next →
+              </button>
+
+              {currentPage < totalPages && (
+                <button
+                  className="btn btn-outline-light"
+                  onClick={() => setCurrentPage(totalPages)}
+                >
+                  Last »
+                </button>
+              )}
+            </div>
+          </div>
+          
+          {/* Side info */}
+          <div className="row my-5">
+            <div className="countryDistribution col-lg-4">
+              <CountryDistributionChart players={players} />
+            </div>
+            <div className="countryDistribution col-lg-8">
+              <h2 className="mb-2">About the Player Base</h2>
+              <p>
+                Our community is growing rapidly across Europe. The chart shows
+                the distribution of players by country, with Germany and the UK
+                leading the way. More countries are joining every season, making
+                the scene more competitive and diverse.
+              </p>
+
+              {/* CTA Box */}
+              <div className="cta-box p-4 mt-4">
+                <h4 className="mb-2">🌍 Be part of the story!</h4>
+                <p className="mb-4">
+                  Do you want to see your country grow on the leaderboard? Join
+                  the competition, submit your PBs, and represent your nation!
+                </p>
+                <button className="cta-btn">Join the Discord!</button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
-    </>
   );
 };
 
