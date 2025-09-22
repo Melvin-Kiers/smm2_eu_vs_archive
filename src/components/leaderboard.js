@@ -636,7 +636,7 @@ const Leaderboard = () => {
             <CountryDistributionChart players={players} />
           </div>
           <div className="countryDistribution col-lg-8">
-            <h2 className="mb-2">About the Player Base</h2>
+            <h3 className="mb-2">About the Player Base</h3>
             <p>
               Our community is growing rapidly across Europe. The chart shows
               the distribution of players by country, with Germany and the UK

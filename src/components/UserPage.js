@@ -71,86 +71,88 @@ const UserPage = () => {
   if (!playerInfo) return <div>No data available.</div>;
 
   return (
-    <div className="userpage-container">
-      <div className="container py-4">
-        {/* Header row */}
-        <div className="d-flex justify-content-between align-items-center mb-3">
-          <button className="btn btn-secondary" onClick={() => navigate("/user")}>
-            ← Back
-          </button>
+    <section>
+      <div className="userpage-container">
+        <div className="container py-4">
+          {/* Header row */}
+          <div className="d-flex justify-content-between align-items-center mb-3">
+            <button className="btn btn-secondary" onClick={() => navigate("/user")}>
+              ← Back
+            </button>
 
-          <h2 className="playerInfoName m-0 text-center flex-grow-1">User information about {playerInfo.name}</h2>
+            <h2 className="playerInfoName m-0 text-center flex-grow-1">User information about {playerInfo.name}</h2>
 
-          <button className="btn btn-purple" onClick={fetchPlayer}>
-            Refresh profile
-          </button>
-        </div>
-
-        {/* Player info grid */}
-        <div className="playerGrid row g-3">
-          <div className="col-12 col-lg-6">
-            <div className="info-box p-3 border rounded h-100">
-              <PlayerInfoBox userInfo={playerInfo} />
-            </div>
+            <button className="btn btn-purple" onClick={fetchPlayer}>
+              Refresh profile
+            </button>
           </div>
-          <div className="col-12 col-lg-6">
-            <div className="info-box p-3 border rounded h-100">
-              <ScoreBadgeBox userInfo={playerInfo} />
+
+          {/* Player info grid */}
+          <div className="playerGrid row g-3">
+            <div className="col-12 col-lg-6">
+              <div className="info-box p-3 border rounded h-100">
+                <PlayerInfoBox userInfo={playerInfo} />
+              </div>
             </div>
-          </div>
-          <div className="col-12 col-lg-4">
-            <div className="info-box p-3 border rounded h-100">
-              <MatchesStatsBox userInfo={playerInfo} />
-              <div className="d-flex justify-content-center mt-2">
-                <WinRateGauge
-                  winRate={(playerInfo.versus_won / playerInfo.versus_plays) * 100 || 0}
-                />
+            <div className="col-12 col-lg-6">
+              <div className="info-box p-3 border rounded h-100">
+                <ScoreBadgeBox userInfo={playerInfo} />
+              </div>
+            </div>
+            <div className="col-12 col-lg-4">
+              <div className="info-box p-3 border rounded h-100">
+                <MatchesStatsBox userInfo={playerInfo} />
+                <div className="d-flex justify-content-center mt-2">
+                  <WinRateGauge
+                    winRate={(playerInfo.versus_won / playerInfo.versus_plays) * 100 || 0}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="col-12 col-lg-4">
+              <div className="MatchesStatsChart info-box p-3 border rounded h-100">
+                <MatchesStatsChart userInfo={playerInfo} />
+              </div>
+            </div>
+            <div className="col-12 col-lg-4">
+              <div className="info-box p-3 border rounded h-100">
+                <KillsStatsBox userInfo={playerInfo} />
+              </div>
+            </div>
+            <div className="col-12 col-lg-6">
+              <div className="info-box p-3 border rounded h-100">
+                <StreakInfoBox userInfo={playerInfo} />
+              </div>
+            </div>
+            <div className="col-12 col-lg-6">
+              <div className="info-box p-3 border rounded h-100">
+                <MedalBox userInfo={playerInfo} />
+              </div>
+            </div>
+            <div className="col-12 col-lg-3">
+              <div className="info-box p-3 border rounded h-100">
+                <RecentPerformance userInfo={playerInfo} />
+              </div>
+            </div>
+            <div className="col-12 col-lg-3">
+              <div className="info-box p-3 border rounded h-100">
+                <VersusRankName userInfo={playerInfo} />
+              </div>
+            </div>
+            <div className="col-12 col-lg-3">
+              <div className="info-box p-3 border rounded h-100">
+                <MultiplayerStatsUnk13 userInfo={playerInfo} />
+              </div>
+            </div>
+            <div className="col-12 col-lg-3">
+              <div className="info-box p-3 border rounded h-100">
+                <MultiplayerStatsUnk14 userInfo={playerInfo} />
               </div>
             </div>
           </div>
-          <div className="col-12 col-lg-4">
-            <div className="MatchesStatsChart info-box p-3 border rounded h-100">
-              <MatchesStatsChart userInfo={playerInfo} />
-            </div>
-          </div>
-          <div className="col-12 col-lg-4">
-            <div className="info-box p-3 border rounded h-100">
-              <KillsStatsBox userInfo={playerInfo} />
-            </div>
-          </div>
-          <div className="col-12 col-lg-6">
-            <div className="info-box p-3 border rounded h-100">
-              <StreakInfoBox userInfo={playerInfo} />
-            </div>
-          </div>
-          <div className="col-12 col-lg-6">
-            <div className="info-box p-3 border rounded h-100">
-              <MedalBox userInfo={playerInfo} />
-            </div>
-          </div>
-          <div className="col-12 col-lg-3">
-            <div className="info-box p-3 border rounded h-100">
-              <RecentPerformance userInfo={playerInfo} />
-            </div>
-          </div>
-          <div className="col-12 col-lg-3">
-            <div className="info-box p-3 border rounded h-100">
-              <VersusRankName userInfo={playerInfo} />
-            </div>
-          </div>
-          <div className="col-12 col-lg-3">
-            <div className="info-box p-3 border rounded h-100">
-              <MultiplayerStatsUnk13 userInfo={playerInfo} />
-            </div>
-          </div>
-          <div className="col-12 col-lg-3">
-            <div className="info-box p-3 border rounded h-100">
-              <MultiplayerStatsUnk14 userInfo={playerInfo} />
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
+      </div> 
+    </section>
   );
 };
 

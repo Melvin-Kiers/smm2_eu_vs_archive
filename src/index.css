@@ -175,6 +175,12 @@ section.info-section .svg-wrapper {
   overflow: hidden;
   /* margin-bottom: -30px; */
   position: relative;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .svg-wrapper {
@@ -183,6 +189,12 @@ section.info-section .svg-wrapper {
   overflow: hidden;
   /* margin-bottom: -30px; */
   z-index: 2;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .userpage-container {
@@ -214,6 +226,11 @@ section.info-section .svg-wrapper {
   z-index: 0;
   animation: walkLeft 20s linear;
   animation-iteration-count: infinite;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .marioWalking img {
@@ -260,6 +277,11 @@ section.info-section .svg-wrapper {
   height: auto;
   z-index: 1;
   pointer-events: none; /* zodat hij geen muisinteractie blokkeert */
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .section-divider-top {
@@ -270,6 +292,11 @@ section.info-section .svg-wrapper {
   height: auto;
   z-index: 1;
   pointer-events: none; /* zodat hij geen muisinteractie blokkeert */
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 /* .hero-section::after {
@@ -1231,6 +1258,11 @@ section.bg-timeline {
   left: 20px;
   z-index: 10;
   transform: rotate(180deg);
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .piranhaPlant {
@@ -1242,6 +1274,11 @@ section.bg-timeline {
   top: 8px;
   transform: rotate(270deg); /* 270 graden gedraaid */
   animation: slide-horizontal 2.5s linear infinite alternate-reverse both;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 @keyframes slide-horizontal {
@@ -1267,6 +1304,11 @@ section.bg-timeline {
   right: 0;
   z-index: 10;
   transform: rotate(180deg);
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 @media screen and (max-width: 1700px) {
@@ -1287,6 +1329,11 @@ section.bg-timeline {
   right: 20px;
   height: auto;
   width: 40px;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .hill {
@@ -1338,9 +1385,15 @@ section.bg-timeline {
   transform: scale(1.05);
 }
 
-.countryDistribution h2{
+/* .countryDistribution h2{
   font-family: "SMM2";
   font-size: 42px;
+  color: white;
+} */
+
+.countryDistribution h3{
+  font-family: "SMM2";
+  font-size: 26px;
   color: white;
 }
 
@@ -1538,6 +1591,12 @@ section.video-section .section-subtitle {
   transform: translateX(-50%); /* corrigeert zodat het element echt gecentreerd staat */
   position: absolute;
   animation: slide-platform 12s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite alternate both;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 @keyframes slide-platform {
@@ -1727,7 +1786,7 @@ section.user-overview {
 
 @media (max-width: 767px) {
   .footer-dark .item:not(.social) {
-    text-align: center;
+    text-align: left;
     padding-bottom: 20px;
   }
 }
@@ -1805,6 +1864,12 @@ section.user-overview {
   overflow: hidden;
   /* margin-bottom: 70px; */
   z-index: 2;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 /* .vine {
@@ -1814,3 +1879,115 @@ section.user-overview {
   left: 5%;
   z-index: 10;
 } */
+
+/* .footer_img {
+  margin-top: 20px;
+} */
+
+.footer_img img {
+  height: 150px;
+  width: auto;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+@media (max-width: 991px) {
+  .footer_img img {
+    height: 100px;
+    width: auto;
+  }
+}
+
+section.search-other {
+  position: relative;
+  min-height: 400px;
+  background-color: #E9E9EC;
+}
+
+.cta-footer-img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 20px;
+}
+
+.cta-footer-img img {
+  display: block;
+  height: 100px;
+  width: auto;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+h3.cta-footer-title {
+  font-family: "SMM2";
+
+}
+
+/* Eerste titel krijgt icoon links */
+.cta-footer-title:first-of-type::before {
+  content: "";
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  background-image: url('/public/images/MarioHat.png'); /* let op: geen /public */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 0.8rem;
+  vertical-align: middle;
+}
+
+/* Laatste titel krijgt icoon rechts */
+.cta-footer-title:last-of-type::after {
+  content: "";
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  background-image: url('/public/images/MarioHat.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.user-overview {
+  position: relative;
+}
+
+.user-overview .svg-wrapper {
+  width: 100%;
+  padding-bottom: 12%; /* dit is je aspect ratio */
+  overflow: hidden;
+  /* margin-bottom: -30px; */
+  z-index: 2;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.user-overview .svg-wrapper img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  object-fit: fill;
+  display: block;
+  pointer-events: none;
+}

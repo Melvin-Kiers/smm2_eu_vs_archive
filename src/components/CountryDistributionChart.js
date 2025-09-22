@@ -63,7 +63,7 @@ const CountryDistributionChart = ({ players }) => {
 
   return (
     <div className="pieChart">
-      <h2 className="mb-3">Player Base</h2>
+      <h3 className="mb-3">Player Base</h3>
       <div style={{ width: "100%", height: "300px" }}>
         <Pie data={chartData} options={options} />
       </div>

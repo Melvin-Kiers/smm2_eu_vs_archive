@@ -65,7 +65,6 @@ function App() {
                 <VerticalTimeline />
                 <TwitchSlider />
                 <MusicButton />
-                <Footer />
               </>
             }
           />
@@ -74,6 +73,7 @@ function App() {
           <Route path="/user" element={<UserOverview />} /> 
           <Route path="/user/:makerId" element={<UserPage />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

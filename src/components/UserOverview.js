@@ -74,6 +74,7 @@ const UserOverview = () => {
   const totalPages = Math.ceil(filteredPlayers.length / playersPerPage);
 
   return (
+    <>
       <section className="user-overview pt-5">
         <div className="container">
           <div className="d-flex justify-content-between align-items-center mb-3">
@@ -274,12 +275,12 @@ const UserOverview = () => {
           </div>
           
           {/* Side info */}
-          <div className="row my-5">
+          <div className="row mt-5">
             <div className="countryDistribution col-lg-4">
               <CountryDistributionChart players={players} />
             </div>
             <div className="countryDistribution col-lg-8">
-              <h2 className="mb-2">About the Player Base</h2>
+              <h3 className="mb-2">About the Player Base</h3>
               <p>
                 Our community is growing rapidly across Europe. The chart shows
                 the distribution of players by country, with Germany and the UK
@@ -299,7 +300,46 @@ const UserOverview = () => {
             </div>
           </div>
         </div>
+                <div className="svg-wrapper">
+        <img src="/images/underGround1.png" alt="" />
+      </div>
       </section>
+
+      <section className="search-other py-5">
+        <div className="container text-center">
+          <h3 className="cta-footer-title mb-3">Search another player</h3>
+          <p className="mb-4 text-muted">
+            Curious about how your friends or rivals are doing?  
+            Enter their 9-character Maker ID below to see their live stats.
+          </p>
+
+          <div
+            className="d-flex justify-content-center gap-2 mb-4"
+            style={{ maxWidth: "400px", margin: "0 auto" }}
+          >
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter 9-char ID..."
+              maxLength={9}
+              value={userCode}
+              onChange={(e) => setUserCode(e.target.value.toUpperCase())}
+            />
+            <button
+              className="btn btn-primary"
+              disabled={userCode.length !== 9}
+              onClick={() => navigate(`/user/${userCode}`)}
+            >
+              Search
+            </button>
+          </div>
+
+          <div className="cta-footer-img">
+            <img src="/images/data/mltt_vs.png" alt="mltt"/>
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 
