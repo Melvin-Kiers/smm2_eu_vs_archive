@@ -11,9 +11,9 @@ AOS.init({
 
 const InfoSection = () => {
   return (
-    <section className="info-section text-center bg-infoSection">
+    <section className="info-section text-center bg-infoSection divider">
       <div className="container pt-5">
-        <h5 className="section-subtitle">Race</h5>
+        <h5 className="section-subtitle mt-2">Race</h5>
         <h2 className="section-title">
           <span className="medal-icon" />
           <div>Compete to Reach the Goal First!</div>
@@ -24,7 +24,7 @@ const InfoSection = () => {
           In hac habitasse platea dictumst. Donec in enim lectus. Integer vel semper magna, nec sollicitudin ex...
         </p>
 
-        <div className="row mt-5">
+        <div className="row mt-4 mb-5">
           <div className="col-lg-4 d-flex" data-aos="zoom-in" data-aos-delay="0">
             <InfoCard
               title="What is Multiplayer Versus?"
@@ -48,11 +48,21 @@ const InfoSection = () => {
           </div>
         </div>
       </div>
-      <div className="svg-wrapper">
+      {/* <div className="svg-wrapper">
         <img src="/images/underGround2.png" alt="" />
-      </div>
-      <div className="marioWalking">
-        <img src="/images/mario_walking.gif" alt="" />
+      </div> */}
+      <div className='MarioPipes'>
+        <div className="GreenPipeLeft">
+          <img src="/images/pipe.png" alt="GreenPipeLeft" />
+        </div>
+        <div className="marioWrapper">
+          <div className="marioWalking">
+            <img src="/images/mario_walking.gif" alt="Mario walking" />
+          </div>
+        </div>
+        <div className="GreenPipeRight">
+          <img src="/images/pipe.png" alt="GreenPipeRight" />
+        </div>
       </div>
     </section>
   );

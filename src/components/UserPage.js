@@ -71,7 +71,7 @@ const UserPage = () => {
   if (!playerInfo) return <div>No data available.</div>;
 
   return (
-    <section>
+    <section className="userpage-section divider">
       <div className="userpage-container">
         <div className="container py-4">
           {/* Header row */}
@@ -80,7 +80,9 @@ const UserPage = () => {
               ← Back
             </button>
 
-            <h2 className="playerInfoName m-0 text-center flex-grow-1">User information about {playerInfo.name}</h2>
+            <h2 className="playerInfoName m-0 text-center flex-grow-1">
+              User information about {playerInfo.name}
+            </h2>
 
             <button className="btn btn-purple" onClick={fetchPlayer}>
               Refresh profile
@@ -88,7 +90,7 @@ const UserPage = () => {
           </div>
 
           {/* Player info grid */}
-          <div className="playerGrid row g-3">
+          <div className="playerGrid row g-3 mb-5">
             <div className="col-12 col-lg-6">
               <div className="info-box p-3 border rounded h-100">
                 <PlayerInfoBox userInfo={playerInfo} />
@@ -151,7 +153,7 @@ const UserPage = () => {
             </div>
           </div>
         </div>
-      </div> 
+      </div>
     </section>
   );
 };

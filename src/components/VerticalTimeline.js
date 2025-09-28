@@ -25,9 +25,9 @@ const VerticalTimeline = () => {
   };
 
   return (
-    <section class="bg-timeline">
+    <section className="bg-timeline divider">
       <img src="/images/CWrobot.png" alt="" className="CWrobot"/>
-      <div className="container intro-history">
+      <div className="container intro-history mt-4">
         <div className="row">
           <div className="col-md-12">
             <div className="vtl-title intro-history my-5" data-aos="fade-up">
@@ -56,7 +56,7 @@ const VerticalTimeline = () => {
             key={index}
             className={`vtl-entry ${index % 2 === 0 ? "vtl-left" : "vtl-right"}`}
             data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
-            data-aos-offset="500" // start pas als 250px zichtbaar is
+            data-aos-offset="100"
           >
             <div className="vtl-timeline-date">
               <h2>{item.date}</h2>
@@ -79,10 +79,10 @@ const VerticalTimeline = () => {
           </div>
         ))}
       </div>
-      <div className="container mt-5">
+      <div className="container my-5">
         <div className="row">
           <div className="col-md-12">
-            <div className="summary-vtl" data-aos="fade-up">
+            <div className="summary-vtl mb-5" data-aos="fade-up">
               <p>
                 A comprehensive overview of the growth and evolution of our community
                 throughout the years. This timeline highlights the milestones, challenges,
@@ -94,9 +94,9 @@ const VerticalTimeline = () => {
           </div>
         </div>
       </div>
-      <div className="svg-wrapper">
+      {/* <div className="svg-wrapper">
         <img src="/images/underGround1.png" alt="" />
-      </div>
+      </div> */}
     </section>
   );
 };

@@ -60,7 +60,7 @@ client.on('messageCreate', async message => {
 
             await page.setViewport({ width: 1920, height: 1080 });
             const elementSelector = '.userpage-container';
-            await page.waitForSelector(elementSelector, { timeout: 5000 });
+            await page.waitForSelector(elementSelector, { timeout: 1000 });
             await wait(2000); // Extra wachten voor stabiliteit
 
             const screenshotPath = 'screenshot.png'; // Locatie waar je de screenshot opslaat

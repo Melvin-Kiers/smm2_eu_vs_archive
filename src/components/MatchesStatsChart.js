@@ -29,7 +29,7 @@ const MatchesStatsChart = ({ userInfo }) => {
       },
       title: {
         display: true,
-        text: hasPlayed ? `Total Matches: ${versus_plays}` : "No matches played"
+        text: hasPlayed ? `Total matches incl DCs: ${versus_plays + versus_disconnected}` : "No matches played"
       },
       tooltip: {
         callbacks: {

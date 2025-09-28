@@ -465,7 +465,7 @@ const Leaderboard = () => {
   const visiblePlayers = filteredPlayers.slice(0, visibleCount);
 
   return (
-    <section className="leaderboard-section pt-5 position-relative" id="leaderboard-section">
+    <section className="leaderboard-section py-5 position-relative divider" id="leaderboard-section">
       <div className="container">
         <div className="row">
           <div className="col-md-12">
@@ -645,7 +645,7 @@ const Leaderboard = () => {
             </p>
 
             {/* CTA Box */}
-            <div className="cta-box p-4 mt-4">
+            <div className="cta-box p-4 my-4">
               <h4 className="mb-2">🌍 Be part of the story!</h4>
               <p className="mb-4">
                 Do you want to see your country grow on the leaderboard? Join
@@ -656,9 +656,9 @@ const Leaderboard = () => {
           </div>
         </div>
       </div>
-      <div className="svg-wrapper">
+      {/* <div className="svg-wrapper">
         <img src="/images/underGround1.png" alt="" />
-      </div>
+      </div> */}
     </section>
   );
 };

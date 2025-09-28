@@ -42,7 +42,7 @@ export default function Hero() {
             o
           </span> Maker 2 <span className="orange">EU VS</span> Archive
         </h1>
-        <p>Discover amazing things with us.</p>
+        <p>Bob it, Bobby.</p>
       </div>
 
       <img src="/images/bottomGroundSet.png" alt="" className="section-divider" />

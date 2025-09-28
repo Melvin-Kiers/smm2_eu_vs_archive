@@ -217,25 +217,32 @@ section.info-section .svg-wrapper {
   pointer-events: none;
 }
 
+.marioWrapper {
+  position: relative;
+  height: 130px; /* claim ruimte onderaan */
+}
+
 .marioWalking {
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, -150%);
-  width: 4%;
-  z-index: 0;
-  animation: walkLeft 20s linear;
-  animation-iteration-count: infinite;
+  bottom: 35px;
+  left: -10%;
+  width: 70px;   /* vaste breedte */
+  animation: walkLeft 20s linear infinite;
+  z-index: 20; /* boven divider */
+}
+
+.marioWalking img {
+  width: 100%;
+  height: auto;
+}
+
+.MarioPipes {
+  pointer-events: none;
   -webkit-user-drag: none;
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-}
-
-.marioWalking img {
-  width: 70%;
-  height: auto;
 }
 
 @keyframes walkLeft {
@@ -258,6 +265,67 @@ section.info-section .svg-wrapper {
   100% {
     left: 100%;
     opacity: 0
+  }
+}
+
+@media (max-width: 992px) {
+  .marioWalking {
+    animation: walkLeft 10s linear infinite;
+  }
+
+  @keyframes walkLeft {
+    0% {
+      left: 0%;
+      opacity: 0;
+    }
+    5% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    85% {
+      opacity: 0;
+    } 
+    100% {
+      left: 100%;
+      opacity: 0
+    }
+  }
+}
+
+@media (max-width: 565px) {
+  .marioWalking {
+    animation: walkLeft 5s linear infinite;
+  }
+
+  @keyframes walkLeft {
+    0% {
+      left: 0%;
+      opacity: 0;
+    }
+    5% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 0;
+    }
+    95% {
+      opacity: 0;
+    } 
+    100% {
+      left: 100%;
+      opacity: 0
+    }
   }
 }
 
@@ -373,11 +441,15 @@ section.info-section .svg-wrapper {
 }
 
 .hero-content h1 {
-  font-size: 64px;
+  font-size: 54px;
   font-family: 'SMM2';
 }
 
 .hero-content span.orange {
+  color: #DB7B00;
+}
+
+span.orange {
   color: #DB7B00;
 }
 
@@ -455,9 +527,9 @@ section.info-section .svg-wrapper {
 
 .section-subtitle {
   font-weight: 600;
-  color: #333;
+  color: #f39c12;
   font-size: 1rem;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0rem;
 }
 
 .section-description {
@@ -1023,6 +1095,7 @@ section.bg-timeline {
     rgba(0, 51, 102, 1) 95%,  /* Hele lijn verder volledig zichtbaar */
     rgba(0, 51, 102, 0) 100%   /* Transparant bovenaan */
   );
+  z-index: -1;
 }
 
 /* Timeline entry wrapper */
@@ -1184,7 +1257,7 @@ section.bg-timeline {
 }
 
 .vtl-timeline-date {
-  color: #DB7B00;
+  color: #FFFFFF;
   margin-bottom: 1rem;
 }
 
@@ -1465,10 +1538,33 @@ section.bg-timeline {
   section.bg-timeline {
     background-size: 300px 300px;
   }
+}
 
-  .marioWalking {
-    display: none;
-  }
+.GreenPipeLeft {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  width: 90px;
+  z-index: 25;
+}
+
+.GreenPipeLeft img {
+  width: 100%;
+  height: auto;
+}
+
+.GreenPipeRight {
+  position: absolute;
+  bottom: 40px;
+  right: 0;
+  width: 90px;
+  z-index: 25;
+  transform: rotateY(180deg);
+}
+
+.GreenPipeRight img {
+  width: 100%;
+  height: auto;
 }
 
 #music-btn {
@@ -1522,7 +1618,7 @@ section.video-section .section-subtitle {
 
 /* Card style */
 .video-card {
-  background: #2c2c3c;
+  background-color: #003366;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
@@ -1530,6 +1626,9 @@ section.video-section .section-subtitle {
   height: 100%;
   display: flex;
   flex-direction: column;
+  background-image: url('/public/images/dottedBG.svg');
+  background-size: 320px;
+  position: relative;
 }
 
 .video-card:hover {
@@ -1553,22 +1652,98 @@ section.video-section .section-subtitle {
   border: none;
 }
 
+.ribbon-wrapper {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.ribbon-wrapper::before,
+.ribbon-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 75%;
+  transform: translateY(-50%);
+  height: 90%;
+  width: auto;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  z-index: 0;
+}
+
+.ribbon-wrapper::before {
+  left: -25px;
+  background-image: url('/public/images/left-ribbon.png');
+}
+
+.ribbon-wrapper::after {
+  right: -25px;
+  background-image: url('/public/images/right-ribbon.png');
+}
+
 .card-body {
-  padding: 15px 20px !important;
-  text-align: left;
-  background-color: white;
-  /* background-image: url('/public/images/dottedBG.svg');
-  background-size: 280px;
-  z-index: 1; */ 
+  padding: 20px 30px !important;
+  position: relative;
 }
 
 .card-body h3 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 16px calc(16px + 16px);
+  background: #F14747;
+  color: #fff;
+  font-family: "SMM2", sans-serif;
   font-size: 20px;
-  margin-bottom: 10px;
-  color: #6D4FA7;
-  font-family: "SMM2";
-  font-weight: 300;
+  text-align: center;
+  line-height: 1.2;
+  justify-content: center;
 }
+
+.video-card::after {
+  content: "";
+  background-color: #FECE00;
+  height: 20px;
+  width: 20px;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  border-radius: 10px 0 0 0;
+  transition: height 0.3s ease, width 0.3s ease, transform 0.3s ease;
+}
+
+.video-card:hover::after {
+  height: 30px;
+  width: 30px;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+}
+
+.filters-right {
+  margin-left: auto; /* duwt de knop naar rechts */
+}
+
+.more-videos-btn {
+  background: #fff;
+  color: #121212;
+  border: 3px solid #ffffff;
+  border-radius: 8px;
+  padding: 8px 18px;
+  height: 45px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  align-items: end;
+}
+
 
 .card-body p {
   font-size: 0.95rem;
@@ -1580,23 +1755,74 @@ section.video-section .section-subtitle {
   display: inline-block;
   font-size: 0.8rem;
   color: #000000;
-  background: rgba(0, 0, 0, 0.1);
+  background: white;
   padding: 5px 10px;
   border-radius: 8px;
+  font-family: "SMM2";
+}
+
+.extra-info.user, .extra-info.gamestyle, .extra-info.date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+}
+
+.extra-info.user::before {
+  content: "";
+  display: inline-block;
+  width: 32px;
+  height: 20px;
+  background-image: url('/public/images/icons/ns_controller.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+
+.extra-info.gamestyle::before {
+  content: "";
+  display: inline-block;
+  width: 32px;
+  height: 20px;
+  background-image: url('/public/images/icons/Tag.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.extra-info.date::before {
+  content: "";
+  display: inline-block;
+  width: 32px;
+  height: 20px;
+  background-image: url('/public/images/icons/Clock.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.platform-wrapper {
+  position: relative;
+  height: 120px;
+  overflow: visible;
+  overflow: hidden !important;
 }
 
 .smb1_platform {
-  bottom: 12.5%;
-  left: 50%; /* zet hem in het midden van de container */
-  transform: translateX(-50%); /* corrigeert zodat het element echt gecentreerd staat */
   position: absolute;
+  bottom: 40%;
+  left: 50%;
+  transform: translateX(-50%);
   animation: slide-platform 12s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite alternate both;
   pointer-events: none;
-  -webkit-user-drag: none;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
+  z-index: 20;
+}
+
+.smb1_platform img {
+  width: 160px;
+  height: auto;
+  display: block;
 }
 
 @keyframes slide-platform {
@@ -1608,12 +1834,11 @@ section.video-section .section-subtitle {
   }
 }
 
-
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
   .smb1_platform {
     display: none;
   }
-}
+} */
 
 section.user-overview {
   background-image: url(https://mario.wiki.gallery/images/monobook-darkbg.webp) !important;
@@ -1753,7 +1978,7 @@ section.user-overview {
 }
 
 .footer-dark {
-  padding: 70px 0;
+  padding: 50px 0;
   color: #f0f9ff;
   background-color: #090909;
   position: relative;
@@ -1907,8 +2132,16 @@ section.user-overview {
 
 section.search-other {
   position: relative;
-  min-height: 400px;
+  min-height: 500px; /* hoogte die je wil */
   background-color: #E9E9EC;
+  display: flex;              /* flexbox inschakelen */
+  justify-content: center;    /* horizontaal centreren */
+  align-items: center;        /* verticaal centreren */
+  text-align: center;         /* tekst centreren */
+}
+
+section.search-other .container.text-center {
+  margin-top: -20px !important;
 }
 
 .cta-footer-img {
@@ -1929,6 +2162,12 @@ section.search-other {
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+}
+
+@media (max-width: 768px) {
+  .cta-footer-img img {
+    height: 50px;
+  }
 }
 
 h3.cta-footer-title {
@@ -1960,8 +2199,59 @@ h3.cta-footer-title {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  margin-left: 0.5rem;
+  margin-left: 0.3rem;
   vertical-align: middle;
+}
+
+/* @media (max-width: 992px) {
+  .cta-footer-title:first-of-type::before, .cta-footer-title:last-of-type::after {
+    width: 64px; 
+    height: 64px;
+  }
+} */
+
+@media (max-width: 574px) {
+  .cta-footer-title:first-of-type::before, .cta-footer-title:last-of-type::after {
+    width: 32px; 
+    height: 32px;
+  }
+}
+
+.colorPipes {
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.colorPipesRight {
+  position: absolute;
+  right: 36px;
+  top: 0;
+}
+
+.colorPipesRight img {
+  height: auto;
+  width: 240px;
+}
+
+.colorPipesLeft {
+  position: absolute;
+  left: 36px;
+  top: 0;
+}
+
+.colorPipesLeft img {
+  height: auto;
+  width: 240px;
+}
+
+@media (max-width: 1400px) {
+  .colorPipes {
+    display: none;
+  }
 }
 
 .user-overview {
@@ -1990,4 +2280,88 @@ h3.cta-footer-title {
   object-fit: fill;
   display: block;
   pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  section.video-section h2.section-title {
+    font-size: 28px;
+  }
+}
+
+
+.divider {
+  position: relative; /* anker voor het ::after element */
+  z-index: 2;
+
+}
+
+.divider::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0px;   /* half van de hoogte zodat hij mooi aansluit */
+  width: 100%;
+  height: 40px;
+
+  background-image: url("/public/images/BrickBlock.png");
+  background-repeat: repeat-x;
+  background-position: 0 50%;
+  background-size: 40px 40px; /* schaal van je PNG */
+  z-index: 3;
+}
+
+section.video-section .filters {
+  display: flex;
+  flex-wrap: wrap;       /* zorgt dat ze netjes doorlopen */
+  gap: 8px;             /* ruimte tussen de knoppen */
+  margin-bottom: 20px;   /* extra ruimte onder de filterbalk */
+}
+
+section.video-section .filter-btn {
+  background: #fff;
+  color: #121212;
+  border: 3px solid #ffffff;
+  border-radius: 8px;
+  padding: 8px 18px;      /* iets compacter */
+  height: 45px;           /* lager */
+  font-size: 1rem;        /* iets kleiner tekst */
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+section.video-section .filter-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 4px 4px 0px #000;
+  background-color: #FFEABF;
+}
+
+section.video-section .filter-btn.active {
+  background-color: #DB7B00;
+  color: #fff;
+}
+
+section.video-section input {
+  height: 45px;
+  padding: 8px 18px;
+  border-radius: 10px;
+}
+
+.sort-select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem; /* afgeronde hoeken */
+  background-color: #fff;
+  font-size: 0.9rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.sort-select:focus {
+  outline: none;
+  border-color: #ff6600; /* oranje accentkleur */
+  box-shadow: 0 0 0 2px rgba(255,102,0,0.2);
+}
+
+.sort-select option {
+  padding: 8px;
 }
