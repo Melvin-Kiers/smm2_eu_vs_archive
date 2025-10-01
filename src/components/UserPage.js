@@ -12,6 +12,7 @@ import WinRateGauge from "./WinRateGauge";
 import MedalBox from "./MedalBox";
 import MultiplayerStatsUnk13 from "./Unk13";
 import MultiplayerStatsUnk14 from "./Unk14";
+import JSONbig from "json-bigint";
 
 const UserPage = () => {
   const { makerId } = useParams();
@@ -25,14 +26,18 @@ const UserPage = () => {
     setError(null);
     fetch(`https://tgrcode.com/mm2/user_info/${makerId}?noCaching=1`, {
       cache: "no-store",
-    })
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch player info, please wait a few seconds before refreshing.");
-        return res.json();
       })
-      .then((data) => setPlayerInfo(data))
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
+    .then((res) => {
+      if (!res.ok)
+        throw new Error("Failed to fetch player info, please wait a few seconds before refreshing.");
+      return res.text(); // belangrijk: niet direct .json()
+    })
+    .then((text) => {
+      const data = JSONbig.parse(text); // pid blijft BigInt
+      setPlayerInfo(data);
+    })
+    .catch((err) => setError(err.message))
+    .finally(() => setLoading(false));
   };
 
   useEffect(() => {

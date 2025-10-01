@@ -198,7 +198,8 @@ section.info-section .svg-wrapper {
 }
 
 .userpage-container {
-  background-image: url(https://mario.wiki.gallery/images/monobook-darkbg.webp) !important;
+  background-image: url('/public/images/smm2_bg.png') !important;
+  background-size: 400px;
   background-repeat: repeat !important;
   min-height: 100vh;
   display: flex;
@@ -792,7 +793,8 @@ span.highlightText {
 } */
 
 .leaderboard-section {
-  background-image: url(https://mario.wiki.gallery/images/monobook-darkbg.webp) !important;
+  background-image: url('/public/images/smm2_bg.png') !important;
+  background-size: 400px;
   background-repeat: repeat !important;
   color: #FFF;
 }
@@ -1591,7 +1593,8 @@ section.bg-timeline {
 section.video-section {
   color: #fff;
   position: relative;
-  background-image: url(https://mario.wiki.gallery/images/monobook-darkbg.webp) !important;
+  background-image: url('/public/images/smm2_bg.png') !important;
+  background-size: 400px;
   background-repeat: repeat !important;
 }
 
@@ -1841,7 +1844,8 @@ section.video-section .section-subtitle {
 } */
 
 section.user-overview {
-  background-image: url(https://mario.wiki.gallery/images/monobook-darkbg.webp) !important;
+  background-image: url('/public/images/smm2_bg.png') !important;
+  background-size: 400px;
   background-repeat: repeat !important;
   min-height: 100vh;
   display: flex;
@@ -2364,4 +2368,56 @@ section.video-section input {
 
 .sort-select option {
   padding: 8px;
+}
+
+
+.top-player-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  background: #111;
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.top-player-card .medal {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.top-player-card .mii-image {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.top-player-card .info {
+  flex: 1;
+}
+
+.top-player-card .info .name {
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+
+.top-player-card .country {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.top-player-card .country img {
+  width: 20px;
+  height: 15px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.top-player-card .value {
+  font-weight: bold;
+  white-space: nowrap;
 }

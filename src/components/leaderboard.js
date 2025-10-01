@@ -383,6 +383,7 @@
 import React, { useEffect, useState } from "react";
 import Papa from "papaparse";
 import CountryDistributionChart from "./CountryDistributionChart";
+import MultiUserSummaryBox from "./MultiUserSummaryBox";
 import { useNavigate } from "react-router-dom";
 
 
@@ -652,6 +653,11 @@ const Leaderboard = () => {
                 the competition, submit your PBs, and represent your nation!
               </p>
               <button className="cta-btn">Join the Discord!</button>
+            </div>
+          </div>
+          <div className="row mb-5">
+            <div className="col-12">
+              <MultiUserSummaryBox />
             </div>
           </div>
         </div>

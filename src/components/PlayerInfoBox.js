@@ -71,7 +71,9 @@ const PlayerInfoBox = ({ userInfo }) => {
           <strong>Last played:</strong> {userInfo.last_active_pretty} (UTC)
         </div>
         <div>
-          <strong>PID:</strong> {userInfo.pid}
+          <div>
+            <strong>PID:</strong> {userInfo.pid?.toString()}
+          </div>
         </div>
       </div>
     </div>

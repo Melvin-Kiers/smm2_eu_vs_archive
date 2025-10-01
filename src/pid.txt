@@ -1,0 +1,94 @@
+// // components/MultiUserSummaryBox.js
+// import React, { useEffect, useState } from "react";
+// import PlayerInfoBox from "./PlayerInfoBox";
+
+// const pids = [
+//   "2733404650489983780",
+//   "10288458327186836310",
+//   "3596524857134970895",
+//   "14553518015507131610",
+//   "6276556945139988639",
+//   "8518655336520188476",
+//   "6059927923346850393",
+//   "12734005516827348976",
+//   "8136838760372187339",
+//   "15288571410082297905",
+//   "12829245878125684750",
+//   "16309732239902182656",
+//   "10222881803666657720",
+//   "3829243610971279853",
+//   "11018471451691355043",
+//   "761911774799361891",
+//   "15895919361720726229",
+//   "8400868880962146162",
+//   "10736700854787952395",
+//   "5161063262012651045"
+// ];
+
+// function summarizeUsers(users) {
+//   return {
+//     versusWon: users.reduce((sum, u) => sum + (u.versus_won || 0), 0),
+//     versusLose: users.reduce((sum, u) => sum + (u.versus_lost || 0), 0),
+//     versusDC: users.reduce((sum, u) => sum + (u.versus_disconnected || 0), 0),
+//     versusPlays: users.reduce((sum, u) => sum + (u.versus_plays || 0), 0),
+//     versusKills: users.reduce((sum, u) => sum + (u.versus_kills || 0), 0),
+//     versusKilledByOthers: users.reduce((sum, u) => sum + (u.versus_killed_by_others || 0), 0),
+//   };
+// }
+
+// const MultiUserSummaryBox = () => {
+//   const [users, setUsers] = useState([]);
+//   const [loading, setLoading] = useState(true);
+
+//   useEffect(() => {
+//     const fetchUsers = async () => {
+//       try {
+//         const url = `https://tgrcode.com/mm2/user_info_multiple/${pids.join(",")}`;
+//         const res = await fetch(url);
+//         const text = await res.text();
+//         const data = JSON.parse(text, (key, value) =>
+//           key === "pid" ? String(value) : value
+//         );
+//         setUsers(data.users);
+//       } catch (err) {
+//         console.error("Error fetching multiple users:", err);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchUsers();
+//   }, []);
+
+//   if (loading) {
+//     return <div className="text-center py-4">Loading summary...</div>;
+//   }
+
+//   if (!users.length) {
+//     return <div className="text-center py-4">No data available.</div>;
+//   }
+
+//   const summary = summarizeUsers(users);
+
+//   return (
+//     <div className="info-box p-4 border rounded mt-4 bg-black">
+//       <h4>📊 Community Summary</h4>
+//       <p><strong>Total Versus won:</strong> {summary.versusWon}</p>
+//       <p><strong>Total Versus loses:</strong> {summary.versusLose}</p>
+//       <p><strong>Total Versus plays:</strong> {summary.versusPlays}</p>
+//       <p><strong>Total Versus kisconnects:</strong> {summary.versusDC}</p>
+//       <p><strong>Total Versus kills:</strong> {summary.versusKills}</p>
+//       <p><strong>Total Versus killed by others:</strong> {summary.versusKilledByOthers}</p>
+
+//       <hr />
+//       <h5>Players</h5>
+//       {users.map((u) => (
+//         <div key={u.pid} className="mb-3">
+//           <PlayerInfoBox userInfo={u} />
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
+
+// export default MultiUserSummaryBox;
