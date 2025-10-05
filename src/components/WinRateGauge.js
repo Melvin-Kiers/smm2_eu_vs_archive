@@ -33,7 +33,7 @@ const WinRateGauge = ({ winRate }) => {
   };
 
   return (
-    <div style={{ width: "100%", maxWidth: 200, height: 150, position: "relative", top: "42px", }}>
+    <div style={{ width: "100%", maxWidth: 200, height: 150, position: "relative", top: "37px", }}>
       <Doughnut data={data} options={options} />
       <div
         style={{

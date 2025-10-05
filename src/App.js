@@ -12,6 +12,7 @@ import UserOverview from "./components/UserOverview"; // overzichtspagina
 import CtaFooter from './components/CtaFooter';
 import Footer from './components/Footer';
 import VideosPage from './components/VideoPage'; 
+import OtherLeaderboards from "./components/OtherLeaderboards";
 
 function App() {
   return (
@@ -39,6 +40,8 @@ function App() {
 
           {/* Nieuwe videos pagina */}
           <Route path="/videos" element={<VideosPage />} />
+
+          <Route path="/other-leaderboards" element={<OtherLeaderboards />} />
         </Routes>
 
         <CtaFooter />

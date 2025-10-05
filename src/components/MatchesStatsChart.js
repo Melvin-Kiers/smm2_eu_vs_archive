@@ -25,7 +25,8 @@ const MatchesStatsChart = ({ userInfo }) => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: "bottom"
+        position: "bottom",
+        display: false
       },
       title: {
         display: true,

@@ -48,6 +48,7 @@ const CountryDistributionChart = ({ players }) => {
     plugins: {
       legend: {
         position: "right", // ← handiger bij landennamen
+        display: false
       },
       title: {
         display: true,
