@@ -1,9 +1,9 @@
 import React from "react";
 
-const MostKills = ({ players }) => {
+const MostDCs = ({ players }) => {
   return (
     <div className="mb-3">
-      <strong className="leaderboard">Most Kills:</strong>
+      <strong className="leaderboard">Most Disconnects:</strong>
       {players.map((player, index) => (
         <div key={player.pid} className="player-row-custom">
           <div className="player-rank">
@@ -32,8 +32,8 @@ const MostKills = ({ players }) => {
             </div>
           </div>
           <div className="playerPB">
-            <div className="pb-label">Kills</div>
-            <div className="pb-value">{player.versus_kills || 0}</div>
+            <div className="pb-label">Disconnects</div>
+            <div className="pb-value">{player.versus_disconnected || 0}</div>
           </div>
         </div>
       ))}
@@ -41,4 +41,4 @@ const MostKills = ({ players }) => {
   );
 };
 
-export default MostKills;
+export default MostDCs;

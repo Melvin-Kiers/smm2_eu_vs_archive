@@ -18,7 +18,7 @@ const MostPlays = ({ players }) => {
                   src={player.mii_image}
                   alt={player.name}
                   className="player-mii"
-                  style={{ width: "32px", height: "32px", borderRadius: "50%" }}
+                  style={{ width: "64px", height: "64px", borderRadius: "50%" }}
                 />
               )}
               <span>{player.name}</span>

@@ -1,16 +1,31 @@
 import React from "react";
 
-const MostKills = ({ players }) => {
+const TopWinrate = ({ players }) => {
+  if (!players?.length) return <p>No player data available.</p>;
+
+  // Bereken winrate en sorteer aflopend
+  const sortedPlayers = [...players]
+    .filter((p) => p.versus_plays > 0)
+    .map((p) => ({
+      ...p,
+      winrate: (p.versus_won / p.versus_plays) * 100,
+    }))
+    .sort((a, b) => b.winrate - a.winrate)
+    .slice(0, 10); // Top 5 spelers
+
   return (
-    <div className="mb-3">
-      <strong className="leaderboard">Most Kills:</strong>
-      {players.map((player, index) => (
+    <div className="mb-3 col-md-12">
+      <strong className="leaderboard">Top 5 Winrate:</strong>
+      {sortedPlayers.map((player, index) => (
         <div key={player.pid} className="player-row-custom">
+          {/* Rank nummer */}
           <div className="player-rank">
             <div className={`circle-number ${index < 3 ? "top-three" : ""}`}>
               {index + 1}
             </div>
           </div>
+
+          {/* Naam, Mii en vlag */}
           <div className="playerName">
             <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
               {player.mii_image && (
@@ -31,9 +46,11 @@ const MostKills = ({ players }) => {
               )}
             </div>
           </div>
+
+          {/* Winrate */}
           <div className="playerPB">
-            <div className="pb-label">Kills</div>
-            <div className="pb-value">{player.versus_kills || 0}</div>
+            <div className="pb-label">Winrate</div>
+            <div className="pb-value">{player.winrate.toFixed(2)}%</div>
           </div>
         </div>
       ))}
@@ -41,4 +58,4 @@ const MostKills = ({ players }) => {
   );
 };
 
-export default MostKills;
+export default TopWinrate;
