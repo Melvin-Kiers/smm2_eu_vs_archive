@@ -13,6 +13,7 @@ import CtaFooter from './components/CtaFooter';
 import Footer from './components/Footer';
 import VideosPage from './components/VideoPage'; 
 import OtherLeaderboards from "./components/OtherLeaderboards";
+import MostPlaysFull from "./components/MostPlaysFull"; // nieuwe pagina
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route path="/videos" element={<VideosPage />} />
 
           <Route path="/other-leaderboards" element={<OtherLeaderboards />} />
+          <Route path="/other-leaderboards/most-plays" element={<MostPlaysFull />} />
         </Routes>
 
         <CtaFooter />

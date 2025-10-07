@@ -19,7 +19,7 @@ const TopKDLeaderboard = ({ players }) => {
 
   return (
     <div className="mb-3 col-md-12">
-      <strong className="leaderboard">Top 5 — Kill/Death Ratio:</strong>
+      <h3 className="leaderboard-title">Highest Kill/Death Ratio:</h3>
       {sortedPlayers.map((player, index) => (
         <div key={player.pid} className="player-row-custom">
           {/* Rank */}

@@ -12,7 +12,7 @@ const TopDeathsLeaderboard = ({ players }) => {
 
   return (
     <div className="mb-3 col-md-12">
-      <strong className="leaderboard">Top 5 — Most Deaths (Killed by Others):</strong>
+      <h3 className="leaderboard-title">Most Killed by Others:</h3>
       {sortedPlayers.map((player, index) => (
         <div key={player.pid} className="player-row-custom">
           {/* Rank */}

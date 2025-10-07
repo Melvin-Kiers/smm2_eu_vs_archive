@@ -12,10 +12,9 @@ import WinrateHistogram from "./WinrateHistogram";
 import TopWinrate from "./TopWinrate";
 import TopKDLeaderboard from "./TopKDLeaderboard";
 import TopDeathsLeaderboard from "./TopDeathsLeaderboard";
-import CommunityIntro from "./CommunityIntro"
+import CommunityIntro from "./CommunityIntro";
 import MostDCs from "./MostDCs";
 import PlayerRadarChart from "./PlayerRadarChart";
-
 
 function summarizeUsers(users) {
   return {
@@ -77,7 +76,6 @@ const OtherLeaderboards = () => {
     });
   };
 
-
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -97,7 +95,32 @@ const OtherLeaderboards = () => {
     fetchUsers();
   }, []);
 
-  if (loading) return <div className="text-center py-4">Loading summary...</div>;
+  // 🔹 Voeg het fullscreen loading GIF toe
+  if (loading)
+    return (
+      <div
+        style={{
+          position: "fixed",       // maakt het scherm vast
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#000000ff", // zwart
+          overflow: "hidden",
+          zIndex: 9999,            // boven alles
+        }}
+      >
+        <img
+          src="/LoadingMario.gif"
+          alt="Loading..."
+          style={{ width: "50vw", height: "50vh", objectFit: "contain" }}
+        />
+      </div>
+    );
+
   if (!users.length)
     return <div className="text-center py-4">No data available.</div>;
 
@@ -108,7 +131,7 @@ const OtherLeaderboards = () => {
   const topDCs = getTop5(users, "versus_disconnected");
 
   const leaderboardData = [
-    <MostPlays players={topPlays} key="plays" />,
+    <MostPlays players={topPlays} totalPlayers={users.length} key="plays" />,
     <MostWins players={topWins} key="wins" />,
     <TopWinrate players={users} key="winrate" />,
     <MostKills players={topKills} key="kills" />,
@@ -119,100 +142,100 @@ const OtherLeaderboards = () => {
 
   return (
     <>
-    <section className="intro_more_leaderboards divider">
-      <div className="container">
-        <CommunityIntro summary={summary} />
-      </div>
-      <div className='MarioPipes'>
-        <div className="GreenPipeLeft">
-          <img src="/images/pipe.png" alt="GreenPipeLeft" />
+      <section className="intro_more_leaderboards divider">
+        <div className="container">
+          <CommunityIntro summary={summary} />
         </div>
-        <div className="marioWrapper">
-          <div className="marioWalking">
-            <img src="/images/mario_walking.gif" alt="Mario walking" />
+        <div className="MarioPipes">
+          <div className="GreenPipeLeft">
+            <img src="/images/pipe.png" alt="GreenPipeLeft" />
           </div>
-        </div>
-        <div className="GreenPipeRight">
-          <img src="/images/pipe.png" alt="GreenPipeRight" />
-        </div>
-      </div> 
-    </section>
-
-    <section className="more_leaderboards">
-      <div className="container">
-        <div className="row">
-          {/* 🔹 Scrollbare leaderboard sectie */}
-          <div className="leaderboard-slider-wrapper">
-            {/* Navigatiepijlen */}
-            <div className="leaderboard-arrows">
-              <button className="arrow-btn left" onClick={scrollLeft}>
-                ←
-              </button>
-              <button className="arrow-btn right" onClick={scrollRight}>
-                →
-              </button>
-            </div>
-
-            {/* Slider */}
-            <div
-              ref={sliderRef}
-              className="leaderboard-slider"
-              onScroll={handleScroll}
-            >
-              {leaderboardData.map((component, i) => (
-                <div
-                  key={i}
-                  className="leaderboard-slide"
-                  style={{ flex: "0 0 100%", scrollSnapAlign: "center" }}
-                >
-                  {component}
-                </div>
-              ))}
-            </div>
-
-            {/* Bullets */}
-            <div className="leaderboard-bullets">
-              {leaderboardData.map((_, i) => (
-                <div
-                  key={i}
-                  className={`bullet ${i === activeIndex ? "active" : ""}`}
-                  onClick={() => scrollToIndex(i)}
-                />
-              ))}
+          <div className="marioWrapper">
+            <div className="marioWalking">
+              <img src="/images/mario_walking.gif" alt="Mario walking" />
             </div>
           </div>
-
-          {/* Charts */}
-          <div className="col-md-4 mb-3">
-            <WinrateChart players={users} />
-          </div>
-          <div className="col-md-4 mb-3">
-            <RankWinrateChart players={users} />
-          </div>
-          <div className="col-md-4 mb-3">
-            <WinrateHistogram players={users} />
-          </div>
-
-          <div className="col-md-12 mb-3">
-            <WinrateVsPlaysChart players={users} />
-          </div>
-          <div className="col-md-12 mb-3">
-            <KillDeathScatter players={users} />
-          </div>
-          <div className="col-md-12">
-            <PlayerRadarChart players={users} />
+          <div className="GreenPipeRight">
+            <img src="/images/pipe.png" alt="GreenPipeRight" />
           </div>
         </div>
+      </section>
 
-        <hr />
-        <h5>All Players</h5>
-        {users.map((u) => (
-          <div key={u.pid} className="mb-3">
-            <PlayerInfoBox userInfo={u} />
+      <section className="more_leaderboards">
+        <div className="container">
+          <div className="row">
+            {/* 🔹 Scrollbare leaderboard sectie */}
+            <div className="leaderboard-slider-wrapper">
+              {/* Navigatiepijlen */}
+              <div className="leaderboard-arrows">
+                <button className="arrow-btn left" onClick={scrollLeft}>
+                  <img src="/images/arrow-left.png" alt="Back" className="arrow-img" />
+                </button>
+                <button className="arrow-btn right" onClick={scrollRight}>
+                  <img src="/images/arrow-right.png" alt="Next" className="arrow-img" />
+                </button>
+              </div>
+
+              {/* Slider */}
+              <div
+                ref={sliderRef}
+                className="leaderboard-slider"
+                onScroll={handleScroll}
+              >
+                {leaderboardData.map((component, i) => (
+                  <div
+                    key={i}
+                    className="leaderboard-slide"
+                    style={{ flex: "0 0 100%", scrollSnapAlign: "center" }}
+                  >
+                    {component}
+                  </div>
+                ))}
+              </div>
+
+              {/* Bullets */}
+              <div className="leaderboard-bullets">
+                {leaderboardData.map((_, i) => (
+                  <div
+                    key={i}
+                    className={`bullet ${i === activeIndex ? "active" : ""}`}
+                    onClick={() => scrollToIndex(i)}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Charts */}
+            <div className="col-md-4 mb-3">
+              <WinrateChart players={users} />
+            </div>
+            <div className="col-md-4 mb-3">
+              <RankWinrateChart players={users} />
+            </div>
+            <div className="col-md-4 mb-3">
+              <WinrateHistogram players={users} />
+            </div>
+
+            <div className="col-md-12 mb-3">
+              <WinrateVsPlaysChart players={users} />
+            </div>
+            <div className="col-md-12 mb-3">
+              <KillDeathScatter players={users} />
+            </div>
+            <div className="col-md-12">
+              <PlayerRadarChart players={users} />
+            </div>
           </div>
-        ))}
-      </div>
-    </section>
+
+          <hr />
+          <h5>All Players</h5>
+          {users.map((u) => (
+            <div key={u.pid} className="mb-3">
+              <PlayerInfoBox userInfo={u} />
+            </div>
+          ))}
+        </div>
+      </section>
     </>
   );
 };

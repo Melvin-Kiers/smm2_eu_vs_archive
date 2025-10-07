@@ -3,7 +3,7 @@ import React from "react";
 const MostDCs = ({ players }) => {
   return (
     <div className="mb-3">
-      <strong className="leaderboard">Most Disconnects:</strong>
+      <h3 className="leaderboard-title">Most Disconnects:</h3>
       {players.map((player, index) => (
         <div key={player.pid} className="player-row-custom">
           <div className="player-rank">

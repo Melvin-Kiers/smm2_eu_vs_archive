@@ -1,9 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const MostPlays = ({ players }) => {
+const MostPlays = ({ players, totalPlayers }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="mb-3 col-md-12">
-      <strong className="leaderboard">Most Plays:</strong>
+      <h3 className="leaderboard-title mb-3">Most Plays:</h3>
+
+      {/* Spelerslijst */}
       {players.map((player, index) => (
         <div key={player.pid} className="player-row-custom">
           <div className="player-rank">
@@ -37,6 +42,23 @@ const MostPlays = ({ players }) => {
           </div>
         </div>
       ))}
+
+      {/* Knop rechtsonder */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          marginTop: "1rem",
+        }}
+      >
+        <button
+          onClick={() => navigate("/other-leaderboards/most-plays")}
+          className="btn btn-purple"
+          style={{ padding: "0.5rem 1rem", borderRadius: "0.5rem" }}
+        >
+          Show all ({totalPlayers})
+        </button>
+      </div>
     </div>
   );
 };

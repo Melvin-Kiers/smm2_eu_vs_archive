@@ -3,7 +3,7 @@ import React from "react";
 const MostWins = ({ players }) => {
   return (
     <div className="mb-3 col-md-12">
-      <strong className="leaderboard">Most Wins:</strong>
+      <h3 className="leaderboard-title">Most Wins:</h3>
       {players.map((player, index) => (
         <div key={player.pid} className="player-row-custom">
           <div className="player-rank">

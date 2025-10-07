@@ -15,7 +15,7 @@ const TopWinrate = ({ players }) => {
 
   return (
     <div className="mb-3 col-md-12">
-      <strong className="leaderboard">Top 5 Winrate:</strong>
+      <h3 className="leaderboard-title">Top Winrates:</h3>
       {sortedPlayers.map((player, index) => (
         <div key={player.pid} className="player-row-custom">
           {/* Rank nummer */}
