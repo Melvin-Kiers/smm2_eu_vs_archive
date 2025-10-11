@@ -1,4 +1,4 @@
-// components/KillDeathScatter.js
+// components/leaderboardCharts/KillDeathScatter.js
 import React from "react";
 import { Scatter } from "react-chartjs-2";
 import {
@@ -8,33 +8,11 @@ import {
   Legend,
   PointElement,
   LinearScale,
+  CategoryScale,
 } from "chart.js";
 
-import {
-  Chart,
-  LineController,
-  LineElement,
-  PointElement,
-  LinearScale,
-  Title,
-  CategoryScale,
-  Tooltip,
-  Legend,
-} from "chart.js";
-
-Chart.register(
-  LineController,
-  LineElement,
-  PointElement,
-  LinearScale,
-  Title,
-  CategoryScale,
-  Tooltip,
-  Legend
-);
-
-
-ChartJS.register(Title, Tooltip, Legend, PointElement, LinearScale);
+// ✅ Registratie van componenten die Scatter nodig heeft
+ChartJS.register(Title, Tooltip, Legend, PointElement, LinearScale, CategoryScale);
 
 const KillDeathScatter = ({ players }) => {
   if (!players?.length) return <p>No player data available.</p>;
