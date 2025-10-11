@@ -29,7 +29,7 @@ const CommunityIntro = ({ summary }) => {
               title="Total Matches"
               text="The total number of matches played."
               number={summary.versusPlays.toLocaleString()}
-              image={`${publicUrl}/images/data/marioflag.png`}
+              image={`${publicUrl}/images/data/marioFlag.png`}
             />
           </div>
           <div className="col-md-4 d-flex" data-aos="zoom-in" data-aos-delay="150">

@@ -10,6 +10,30 @@ import {
   LinearScale,
 } from "chart.js";
 
+import {
+  Chart,
+  LineController,
+  LineElement,
+  PointElement,
+  LinearScale,
+  Title,
+  CategoryScale,
+  Tooltip,
+  Legend,
+} from "chart.js";
+
+Chart.register(
+  LineController,
+  LineElement,
+  PointElement,
+  LinearScale,
+  Title,
+  CategoryScale,
+  Tooltip,
+  Legend
+);
+
+
 ChartJS.register(Title, Tooltip, Legend, PointElement, LinearScale);
 
 const KillDeathScatter = ({ players }) => {
