@@ -57,7 +57,7 @@ const TopKDFull = () => {
         }}
       >
         <img
-          src="/LoadingMario.gif"
+          src={process.env.PUBLIC_URL + "/LoadingMario.gif"}
           alt="Loading..."
           style={{ width: "50vw", height: "50vh", objectFit: "contain" }}
         />

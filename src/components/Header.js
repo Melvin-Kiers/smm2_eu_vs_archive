@@ -19,7 +19,7 @@ export default function Hero() {
 
   return (
     <section className="hero-section">
-      <img src="/images/topGroundSet.png" alt="" className="section-divider-top" />
+      <img src={process.env.PUBLIC_URL + "/images/topGroundSet.png"} alt="" className="section-divider-top" />
 
       <div
         className={`hero-content ${animate ? "active" : ""}`}
@@ -33,7 +33,7 @@ export default function Hero() {
               i
               {animate && (
                 <img
-                  src="/images/smm_parakeet.png"
+                  src={process.env.PUBLIC_URL + "/images/smm_parakeet.png"}
                   alt="Bird"
                   className="drop-in-out"
                 />
@@ -45,10 +45,10 @@ export default function Hero() {
         <p>Bob it, Bobby.</p>
       </div>
 
-      <img src="/images/bottomGroundSet.png" alt="" className="section-divider" />
+      <img src={process.env.PUBLIC_URL + "/images/bottomGroundSet.png"} alt="" className="section-divider" />
 
       {/* Audio-element */}
-      <audio ref={audioRef} src="/smb_coin.wav"/>
+      <audio ref={audioRef} src={process.env.PUBLIC_URL + "/smb_coin.wav"}/>
     </section>
   );
 }

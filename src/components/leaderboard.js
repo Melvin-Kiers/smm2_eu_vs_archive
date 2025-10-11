@@ -120,8 +120,8 @@
 //       <div className="container">
 //         <div className="row">
 //           <div className="col-md-12">
-//             {/* <img src="/images/CWearth.png" alt="" className="CWearth"/> */}
-//             {/* <img src="/images/CWmoon.png" alt="" className="CWmoon"/> */}
+//             {/* <img src={process.env.PUBLIC_URL + "/images/CWearth.png" alt="" className="CWearth"/> */}
+//             {/* <img src={process.env.PUBLIC_URL + "/images/CWmoon.png" alt="" className="CWmoon"/> */}
 //             <h2 className="leaderboard-title mb-2">European PB <span>Leaderboard</span></h2>
 //             <p className="leaderboard-intro mb-4">
 //               Here you can view the PB leaderboard of all active and known VS players.  
@@ -254,7 +254,7 @@
 //                     <div className="modal-body">
 //                       {loadingInfo && (
 //                         <div className="d-flex justify-content-center align-items-center" style={{ minHeight: "200px" }}>
-//                           <img src="/LoadingMario.gif" alt="Loading..."  style={{ width: "800px"}} />
+//                           <img src={process.env.PUBLIC_URL + "/LoadingMario.gif" alt="Loading..."  style={{ width: "800px"}} />
 //                         </div>
 //                       )}
 //                       {errorInfo && <div className="alert alert-danger">{errorInfo}</div>}
@@ -372,7 +372,7 @@
 //         </div>
 //       </div>
 //       <div className="svg-wrapper">
-//         <img src="/images/underGround1.png" alt="" />
+//         <img src={process.env.PUBLIC_URL + "/images/underGround1.png" alt="" />
 //       </div>
 //     </section>
 //   );
@@ -385,6 +385,7 @@ import Papa from "papaparse";
 import CountryDistributionChart from "./CountryDistributionChart";
 // import MultiUserSummaryBox from "./MultiUserSummaryBox";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 const Leaderboard = () => {
@@ -652,7 +653,9 @@ const Leaderboard = () => {
                 Do you want to see your country grow on the leaderboard? Join
                 the competition, submit your PBs, and represent your nation!
               </p>
-              <button className="cta-btn"><a href="/other-leaderboards">Join the Discord!</a></button>
+              <button className="cta-btn">
+                <Link to="/other-leaderboards">Join the Discord!</Link>
+              </button>
             </div>
           </div>
           {/* <div className="row mb-5">
@@ -663,7 +666,7 @@ const Leaderboard = () => {
         </div>
       </div>
       {/* <div className="svg-wrapper">
-        <img src="/images/underGround1.png" alt="" />
+        <img src={process.env.PUBLIC_URL + "/images/underGround1.png" alt="" />
       </div> */}
     </section>
   );

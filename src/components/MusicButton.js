@@ -29,7 +29,7 @@ export default function MusicButton() {
         {isPlaying ? "⏸️" : "▶️"}
       </button>
       <audio ref={musicRef} loop>
-        <source src="/courseWorld.mp3" type="audio/mpeg" />
+        <source src={process.env.PUBLIC_URL + "/courseWorld.mp3"} type="audio/mpeg" />
         Je browser ondersteunt audio niet.
       </audio>
     </>

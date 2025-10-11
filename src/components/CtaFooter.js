@@ -36,15 +36,15 @@ const CtaFooter = () => {
         </div>
 
         <div className="cta-footer-img">
-          <img src="/images/data/mltt_vs.png" alt="mltt" />
+          <img src={process.env.PUBLIC_URL + "/images/data/mltt_vs.png"} alt="mltt" />
         </div>
       </div>
       <div className="colorPipes">
         <div className="colorPipesLeft">
-          <img src="/images/colorPipesLeft.png" alt="color pipes" />
+          <img src={process.env.PUBLIC_URL + "/images/colorPipesLeft.png"} alt="color pipes" />
         </div>
         <div className="colorPipesRight">
-          <img src="/images/colorPipesRight.png" alt="color pipes" />
+          <img src={process.env.PUBLIC_URL + "/images/colorPipesRight.png"} alt="color pipes" />
         </div>
       </div>
     </section>

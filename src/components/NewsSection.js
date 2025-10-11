@@ -4,13 +4,13 @@ const NewsSection = () => {
   return (
     <section className="news-section py-5 text-white position-relative">
         <img
-            src="/images/CWearth.png"
+            src={process.env.PUBLIC_URL + "/images/CWearth.png"
             alt=""
             className="CWearth"
         />
 
         <img
-            src="/images/CWmoon.png"
+            src={process.env.PUBLIC_URL + "/images/CWmoon.png"
             alt=""
             className="CWmoon"
         />
@@ -24,7 +24,7 @@ const NewsSection = () => {
           {/* Linkerkolom */}
           <div className="col-12 col-lg-8">
             <div className="news-card position-relative overflow-hidden">
-              <img src="/images/News1.png" alt="Nieuws" className="img-fluid w-100" />
+              <img src={process.env.PUBLIC_URL + "/images/News1.png" alt="Nieuws" className="img-fluid w-100" />
               <div className="news-text-overlay">
                 <p className="mb-0 fw-bold">
                   Grote kolom – Lorem ipsum dolor sit amet.
@@ -36,13 +36,13 @@ const NewsSection = () => {
           {/* Rechterkolom met 2 onder elkaar */}
           <div className="col-12 col-lg-4 d-flex flex-column gap-4">
             <div className="news-card position-relative overflow-hidden">
-              <img src="/images/News1.png" alt="Nieuws" className="img-fluid w-100" />
+              <img src={process.env.PUBLIC_URL + "/images/News1.png" alt="Nieuws" className="img-fluid w-100" />
               <div className="news-text-overlay">
                 <p className="mb-0 fw-bold">Nieuwsbericht 1</p>
               </div>
             </div>
             <div className="news-card position-relative overflow-hidden">
-              <img src="/images/News1.png" alt="Nieuws" className="img-fluid w-100" />
+              <img src={process.env.PUBLIC_URL + "/images/News1.png" alt="Nieuws" className="img-fluid w-100" />
               <div className="news-text-overlay">
                 <p className="mb-0 fw-bold">Nieuwsbericht 2</p>
               </div>
@@ -51,7 +51,7 @@ const NewsSection = () => {
         </div>
       </div>
       <div className="svg-wrapper">
-        <img src="/images/underGround1.png" alt="" />
+        <img src={process.env.PUBLIC_URL + "/images/underGround1.png" alt="" />
       </div>
     </section>
   );

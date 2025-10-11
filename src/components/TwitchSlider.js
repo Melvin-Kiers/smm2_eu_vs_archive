@@ -145,7 +145,7 @@ const YouTubeCards = () => {
 
       <div className="platform-wrapper">
         <div className="smb1_platform">
-          <img src="/images/smb1_platform.png" alt="SMB1 moving platform" />
+          <img src={process.env.PUBLIC_URL + "/images/smb1_platform.png"} alt="SMB1 moving platform" />
         </div>
       </div>
     </section>

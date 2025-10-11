@@ -30,7 +30,7 @@ import DebugPredictUnknowns from "./pages/DebugPredictUnknowns";
 function App() {
   return (
     <div className="App">
-      <Router basename="/smm2_eu_vs_archive">
+      <Router basename={process.env.PUBLIC_URL}>
         <Routes>
           {/* Homepage layout */}
           <Route

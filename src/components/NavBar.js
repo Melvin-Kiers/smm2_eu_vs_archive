@@ -8,7 +8,7 @@ const NavBar = () => {
 
         <div className="navbar-links-wrapper">
           <img
-            src="/images/pipe-background.svg"
+            src={process.env.PUBLIC_URL + "/images/pipe-background.svg"
             alt="Pipe background"
             className="navbar-bg-svg"
           />

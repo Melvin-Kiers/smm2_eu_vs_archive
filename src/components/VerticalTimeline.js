@@ -26,7 +26,7 @@ const VerticalTimeline = () => {
 
   return (
     <section className="bg-timeline divider">
-      <img src="/images/CWrobot.png" alt="" className="CWrobot"/>
+      <img src={process.env.PUBLIC_URL + "/images/CWrobot.png"} alt="" className="CWrobot"/>
       <div className="container intro-history mt-4">
         <div className="row">
           <div className="col-md-12">
@@ -44,11 +44,11 @@ const VerticalTimeline = () => {
         </div>
       </div>
       <div class="pipePlant">
-        <img src="/images/pipe.png" alt="" className="pipe"/>
-        <img src="/images/piranhaPlant.png" alt="" className="piranhaPlant"/>
+        <img src={process.env.PUBLIC_URL + "/images/pipe.png"} alt="" className="pipe"/>
+        <img src={process.env.PUBLIC_URL + "/images/piranhaPlant.png"} alt="" className="piranhaPlant"/>
       </div>
       {/* <div class="hill">
-        <img src="/images/small_hill.png" alt="" className="smallHill"/>
+        <img src={process.env.PUBLIC_URL + "/images/small_hill.png"} alt="" className="smallHill"/>
       </div> */}
       <div className="container vtl-timeline">
         {timelineData.map((item, index) => (
@@ -95,7 +95,7 @@ const VerticalTimeline = () => {
         </div>
       </div>
       {/* <div className="svg-wrapper">
-        <img src="/images/underGround1.png" alt="" />
+        <img src={process.env.PUBLIC_URL + "/images/underGround1.png"} alt="" />
       </div> */}
     </section>
   );

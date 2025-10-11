@@ -49,19 +49,19 @@ const InfoSection = () => {
         </div>
       </div>
       {/* <div className="svg-wrapper">
-        <img src="/images/underGround2.png" alt="" />
+        <img src={process.env.PUBLIC_URL + "/images/underGround2.png" alt="" />
       </div> */}
       <div className='MarioPipes'>
         <div className="GreenPipeLeft">
-          <img src="/images/pipe.png" alt="GreenPipeLeft" />
+          <img src={process.env.PUBLIC_URL + "/images/pipe.png"} alt="GreenPipeLeft" />
         </div>
         <div className="marioWrapper">
           <div className="marioWalking">
-            <img src="/images/mario_walking.gif" alt="Mario walking" />
+            <img src={process.env.PUBLIC_URL + "/images/mario_walking.gif"} alt="Mario walking" />
           </div>
         </div>
         <div className="GreenPipeRight">
-          <img src="/images/pipe.png" alt="GreenPipeRight" />
+          <img src={process.env.PUBLIC_URL + "/images/pipe.png"} alt="GreenPipeRight" />
         </div>
       </div>
     </section>

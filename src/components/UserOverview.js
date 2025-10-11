@@ -300,7 +300,7 @@ const UserOverview = () => {
           </div>
         </div>
                 <div className="svg-wrapper">
-        <img src="/images/underGround1.png" alt="" />
+        <img src={process.env.PUBLIC_URL + "/images/underGround1.png"} alt="" />
       </div>
       </section>
   );

@@ -117,7 +117,7 @@ const OtherLeaderboards = () => {
         }}
       >
         <img
-          src="/LoadingMario.gif"
+          src={process.env.PUBLIC_URL + "/LoadingMario.gif"}
           alt="Loading..."
           style={{ width: "50vw", height: "50vh", objectFit: "contain" }}
         />
@@ -157,15 +157,15 @@ const OtherLeaderboards = () => {
         </div>
         <div className="MarioPipes">
           <div className="GreenPipeLeft">
-            <img src="/images/pipe.png" alt="GreenPipeLeft" />
+            <img src={process.env.PUBLIC_URL + "/images/pipe.png"} alt="GreenPipeLeft" />
           </div>
           <div className="marioWrapper">
             <div className="marioWalking">
-              <img src="/images/mario_walking.gif" alt="Mario walking" />
+              <img src={process.env.PUBLIC_URL + "/images/mario_walking.gif"} alt="Mario walking" />
             </div>
           </div>
           <div className="GreenPipeRight">
-            <img src="/images/pipe.png" alt="GreenPipeRight" />
+            <img src={process.env.PUBLIC_URL + "/images/pipe.png"} alt="GreenPipeRight" />
           </div>
         </div>
       </section>
@@ -178,10 +178,10 @@ const OtherLeaderboards = () => {
               {/* Navigatiepijlen */}
               <div className="leaderboard-arrows">
                 <button className="arrow-btn left" onClick={scrollLeft}>
-                  <img src="/images/arrow-left.png" alt="Back" className="arrow-img" />
+                  <img src={process.env.PUBLIC_URL + "/images/arrow-left.png"} alt="Back" className="arrow-img" />
                 </button>
                 <button className="arrow-btn right" onClick={scrollRight}>
-                  <img src="/images/arrow-right.png" alt="Next" className="arrow-img" />
+                  <img src={process.env.PUBLIC_URL + "/images/arrow-right.png"} alt="Next" className="arrow-img" />
                 </button>
               </div>
 
