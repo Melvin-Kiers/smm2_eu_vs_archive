@@ -1,20 +1,23 @@
 import React, { useEffect, useState, useRef } from "react";
 import pids from "./pids";
-import PlayerInfoBox from "./PlayerInfoBox";
-import MostWins from "./MostWins";
-import MostPlays from "./MostPlays";
-import MostKills from "./MostKills";
-import KillDeathScatter from "./KillDeathScatter";
-import WinrateChart from "./WinrateChart";
-import RankWinrateChart from "./RankWinrateChart";
-import WinrateVsPlaysChart from "./WinrateVsPlaysChart";
-import WinrateHistogram from "./WinrateHistogram";
-import TopWinrate from "./TopWinrate";
-import TopKDLeaderboard from "./TopKDLeaderboard";
-import TopDeathsLeaderboard from "./TopDeathsLeaderboard";
+import PlayerInfoBox from "./userInfo/PlayerInfoBox";
+import MostWins from "./subLeaderboards/MostWins";
+import MostPlays from "./subLeaderboards/MostPlays";
+import MostKills from "./subLeaderboards/MostKills";
+import KillDeathScatter from "./leaderboardCharts/KillDeathScatter";
+import WinrateChart from "./leaderboardCharts/WinrateChart";
+import RankWinrateChart from "./leaderboardCharts/RankWinrateChart";
+import WinrateVsPlaysChart from "./leaderboardCharts/WinrateVsPlaysChart";
+import WinrateHistogram from "./leaderboardCharts/WinrateHistogram";
+import TopWinrate from "./subLeaderboards/TopWinrate";
+import TopKDLeaderboard from "./subLeaderboards/TopKDLeaderboard";
+import TopDeathsLeaderboard from "./subLeaderboards/TopDeathsLeaderboard";
 import CommunityIntro from "./CommunityIntro";
-import MostDCs from "./MostDCs";
-import PlayerRadarChart from "./PlayerRadarChart";
+import MostDCs from "./subLeaderboards/MostDCs";
+import PlayerRadarChart from "./leaderboardCharts/PlayerRadarChart";
+import HighestUnk13 from "./subLeaderboards/HighestUnk13";
+import HighestUnk14 from "./subLeaderboards/HighestUnk14";
+import BestRecentPerformance from "./subLeaderboards/BestRecentPerformance";
 
 function summarizeUsers(users) {
   return {
@@ -129,15 +132,21 @@ const OtherLeaderboards = () => {
   const topPlays = getTop5(users, "versus_plays");
   const topKills = getTop5(users, "versus_kills");
   const topDCs = getTop5(users, "versus_disconnected");
+  const topUnk13 = getTop5(users, "multiplayer_stats_unk13");
+  const topUnk14 = getTop5(users, "multiplayer_stats_unk14");
+  const topRecentPerformance = getTop5(users, "recent_performance");
 
   const leaderboardData = [
     <MostPlays players={topPlays} totalPlayers={users.length} key="plays" />,
-    <MostWins players={topWins} key="wins" />,
-    <TopWinrate players={users} key="winrate" />,
-    <MostKills players={topKills} key="kills" />,
-    <TopDeathsLeaderboard players={users} key="deaths" />,
-    <TopKDLeaderboard players={users} key="kd" />,
-    <MostDCs players={topDCs} key="dcs" />,
+    <MostWins players={topWins} totalPlayers={users.length} key="wins" />,
+    <TopWinrate players={users} totalPlayers={users.length} key="winrate" />,
+    <MostKills players={topKills} totalPlayers={users.length} key="kills" />,
+    <TopDeathsLeaderboard players={users} totalPlayers={users.length} key="deaths" />,
+    <TopKDLeaderboard players={users} totalPlayers={users.length} key="kd" />,
+    <MostDCs players={topDCs} totalPlayers={users.length} key="dcs" />,
+    <HighestUnk13 players={topUnk13} totalPlayers={users.length} key="unk13" />,
+    <HighestUnk14 players={topUnk14} totalPlayers={users.length} key="unk14" />,
+    <BestRecentPerformance players={topRecentPerformance} totalPlayers={users.length} key="recentPerformance" />,
   ];
 
   return (
@@ -215,7 +224,6 @@ const OtherLeaderboards = () => {
             <div className="col-md-4 mb-3">
               <WinrateHistogram players={users} />
             </div>
-
             <div className="col-md-12 mb-3">
               <WinrateVsPlaysChart players={users} />
             </div>

@@ -1,17 +1,17 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import PlayerInfoBox from "./PlayerInfoBox";
-import MatchesStatsBox from "./MatchesStatsBox";
-import ScoreBadgeBox from "./ScoreBadgeBox";
-import StreakInfoBox from "./StreakInfoBox";
-import MatchesStatsChart from "./MatchesStatsChart";
-import KillsStatsBox from "./KillsStatsBox";
-import VersusRankName from "./VersusRankName";
-import RecentPerformance from "./RecentPerformance";
-import WinRateGauge from "./WinRateGauge";
-import MedalBox from "./MedalBox";
-import MultiplayerStatsUnk13 from "./Unk13";
-import MultiplayerStatsUnk14 from "./Unk14";
+import PlayerInfoBox from "./userInfo/PlayerInfoBox";
+import MatchesStatsBox from "./userInfo/MatchesStatsBox";
+import ScoreBadgeBox from "./userInfo/ScoreBadgeBox";
+import StreakInfoBox from "./userInfo/StreakInfoBox";
+import MatchesStatsChart from "./userInfo/MatchesStatsChart";
+import KillsStatsBox from "./userInfo/KillsStatsBox";
+import VersusRankName from "./userInfo/VersusRankName";
+import RecentPerformance from "./userInfo/RecentPerformance";
+import WinRateGauge from "./userInfo/WinRateGauge";
+import MedalBox from "./userInfo/MedalBox";
+import MultiplayerStatsUnk13 from "./userInfo/Unk13";
+import MultiplayerStatsUnk14 from "./userInfo/Unk14";
 import JSONbig from "json-bigint";
 
 const UserPage = () => {

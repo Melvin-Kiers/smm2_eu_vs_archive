@@ -37,7 +37,7 @@ const PlayerRadarChart = ({ players }) => {
           : p.versus_kills,
     }))
     .sort((a, b) => b.winrate - a.winrate)
-    .slice(0, 5);
+    .slice(0, 15);
 
   // --- Normalize values so they fit within 0–100 scale ---
   const maxRating = Math.max(...topPlayers.map((p) => p.versus_rating || 0), 1);

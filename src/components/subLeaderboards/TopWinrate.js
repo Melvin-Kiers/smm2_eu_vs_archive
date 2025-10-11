@@ -1,28 +1,33 @@
-// components/TopDeathsLeaderboard.js
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const TopDeathsLeaderboard = ({ players }) => {
-  if (!players || players.length === 0) return <p>No player data available.</p>;
+const TopWinrate = ({ players, totalPlayers }) => {
+  const navigate = useNavigate();
 
-  // --- Sorteer spelers op aantal keer gedood door anderen (aflopend) ---
+  if (!players?.length) return <p>No player data available.</p>;
+
   const sortedPlayers = [...players]
     .filter((p) => p.versus_plays > 0)
-    .sort((a, b) => (b.versus_killed_by_others || 0) - (a.versus_killed_by_others || 0))
+    .map((p) => ({ ...p, winrate: (p.versus_won / p.versus_plays) * 100 }))
+    .sort((a, b) => b.winrate - a.winrate)
     .slice(0, 10);
 
   return (
     <div className="mb-3 col-md-12">
-      <h3 className="leaderboard-title">Most Killed by Others:</h3>
+      <div className="intro-more_leaderboards">
+        <h3 className="leaderboard-title mb-3">Top Winrates:</h3>
+        <p className="white">Skill meets consistency here. These players don’t just play often — they win efficiently. Every match is calculated, every move intentional.
+          A high win rate means they turn opportunities into results. Quality over quantity — that’s what sets them apart.</p>
+      </div>
+
       {sortedPlayers.map((player, index) => (
         <div key={player.pid} className="player-row-custom">
-          {/* Rank */}
           <div className="player-rank">
             <div className={`circle-number ${index < 3 ? "top-three" : ""}`}>
               {index + 1}
             </div>
           </div>
 
-          {/* Player Info */}
           <div className="playerName">
             <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
               {player.mii_image && (
@@ -44,15 +49,25 @@ const TopDeathsLeaderboard = ({ players }) => {
             </div>
           </div>
 
-          {/* Death Count */}
           <div className="playerPB">
-            <div className="pb-label">Deaths</div>
-            <div className="pb-value">{player.versus_killed_by_others || 0}</div>
+            <div className="pb-label">Winrate</div>
+            <div className="pb-value">{player.winrate.toFixed(2)}%</div>
           </div>
         </div>
       ))}
+
+      {/* Show all knop */}
+      <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "1rem" }}>
+        <button
+          onClick={() => navigate("/other-leaderboards/top-winrate")}
+          className="btn btn-purple"
+          style={{ padding: "0.5rem 1rem", borderRadius: "0.5rem" }}
+        >
+          Show all ({totalPlayers})
+        </button>
+      </div>
     </div>
   );
 };
 
-export default TopDeathsLeaderboard;
+export default TopWinrate;

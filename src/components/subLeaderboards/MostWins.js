@@ -1,9 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const MostWins = ({ players }) => {
+const MostWins = ({ players, totalPlayers }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="mb-3 col-md-12">
-      <h3 className="leaderboard-title">Most Wins:</h3>
+      <div className="intro-more_leaderboards">
+        <h3 className="leaderboard-title mb-3">Most Wins:</h3>
+        <p className="white">Winning this much takes time, patience, and persistence. These players have collected a huge number of victories across endless matches. It doesn’t always mean they’re unbeatable — but they never give up.
+          Each win adds another step on their long competitive journey. Dedication like this deserves respect on any leaderboard.</p>
+      </div>
+
       {players.map((player, index) => (
         <div key={player.pid} className="player-row-custom">
           <div className="player-rank">
@@ -37,6 +45,23 @@ const MostWins = ({ players }) => {
           </div>
         </div>
       ))}
+
+      {/* Show all knop */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          marginTop: "1rem",
+        }}
+      >
+        <button
+          onClick={() => navigate("/other-leaderboards/most-wins")}
+          className="btn btn-purple"
+          style={{ padding: "0.5rem 1rem", borderRadius: "0.5rem" }}
+        >
+          Show all ({totalPlayers})
+        </button>
+      </div>
     </div>
   );
 };
