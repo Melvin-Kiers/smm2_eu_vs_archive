@@ -25,6 +25,7 @@ import HighestUnk14Full from "./pages/otherFullLeaderboards/HighestUnk14Full";
 import BestRecentPerformanceFull from "./pages/otherFullLeaderboards/BestRecentPerformanceFull";
 import DebugUnknowns from "./pages/DebugUnknowns";
 import DebugPredictUnknowns from "./pages/DebugPredictUnknowns";
+import "./chartSetup";
 
 
 function App() {
