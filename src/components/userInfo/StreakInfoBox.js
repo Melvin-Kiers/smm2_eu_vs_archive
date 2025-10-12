@@ -16,9 +16,9 @@ const StreakInfoBox = ({ userInfo }) => {
     : `is currently on a ${loseStreak} losing streak!`;
 
   const arrowSrc = isWinning
-    ? "/images/data/winStreak.png"
+    ? process.env.PUBLIC_URL + "/images/data/winStreak.png"
     : isLosing
-    ? "/images/data/loseStreak.png"
+    ? process.env.PUBLIC_URL + "/images/data/loseStreak.png"
     : null;
 
   return (

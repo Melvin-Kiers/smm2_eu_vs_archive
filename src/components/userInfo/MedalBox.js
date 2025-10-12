@@ -6,19 +6,21 @@ const getMedalImage = (userInfo) => {
   const badge = userInfo.badges.find((b) => b.type === 5);
   if (!badge) return "";
 
+  const basePath = process.env.PUBLIC_URL + "/images/data/";
+
   switch (badge.rank_name) {
     case "Gold":
-      return "/images/data/medalGold.png";
+      return basePath + "medalGold.png";
     case "Silver":
-      return "/images/data/medalSilver.png";
+      return basePath + "medalSilver.png";
     case "Bronze":
-      return "/images/data/medalBronze.png";
+      return basePath + "medalBronze.png";
     case "Gold Ribbon":
-      return "/images/data/medalGoldRibbon.png";
+      return basePath + "medalGoldRibbon.png";
     case "Silver Ribbon":
-      return "/images/data/medalSilverRibbon.png";
+      return basePath + "medalSilverRibbon.png";
     case "Bronze Ribbon":
-      return "/images/data/medalBronzeRibbon.png";
+      return basePath + "medalBronzeRibbon.png";
     default:
       return "";
   }
@@ -43,7 +45,9 @@ const MedalBox = ({ userInfo }) => {
         <p>{medalText}</p>
       </div>
 
-      {medalImage && <img src={medalImage} alt="Medal" className="medal-image" />}
+      {medalImage && (
+        <img src={medalImage} alt="Medal" className="medal-image" />
+      )}
     </div>
   );
 };
