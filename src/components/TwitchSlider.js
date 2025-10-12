@@ -136,9 +136,9 @@ const YouTubeCards = () => {
         {filteredClips.length === 0 && <p>No videos found...</p>}
         <div className="filters mb-3 d-flex justify-content-between align-items-center">
           <div className="filters-right mt-3">
-            <a href="/videos" className="more-videos-btn">
+            {/* <a href="/videos" className="more-videos-btn">
               More Highlights →
-            </a>
+            </a> */}
           </div>
         </div>
       </div>

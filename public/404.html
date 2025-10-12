@@ -1,8 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta http-equiv="refresh" content="0; url=/smm2_eu_vs_archive/" />
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+      // 👇 verwijder je project-basispad (als je via GitHub Pages serveert)
+      const base = "/smm2_eu_vs_archive";
+
+      // Haal het huidige pad op (zonder base)
+      const path = window.location.pathname.replace(base, "");
+
+      // Bouw nieuwe URL met hash zodat React Router het herkent
+      const newUrl = base + "/#" + path + window.location.search;
+
+      // Redirect
+      window.location.replace(newUrl);
+    </script>
   </head>
   <body>
+    <p>Redirecting...</p>
   </body>
 </html>

@@ -448,7 +448,7 @@ const Leaderboard = () => {
     if (!player.Maker_ID) return;
 
     // sla huidige scrollpositie op
-    sessionStorage.setItem("scrollPosition", window.scrollY);
+    // sessionStorage.setItem("scrollPosition", window.scrollY);
 
     navigate(`/user/${player.Maker_ID}`);
   };
@@ -654,7 +654,7 @@ const Leaderboard = () => {
                 the competition, submit your PBs, and represent your nation!
               </p>
               <button className="cta-btn">
-                <Link to="/other-leaderboards">Join the Discord!</Link>
+                <Link to="/other-leaderboards">View More!</Link>
               </button>
             </div>
           </div>

@@ -21,23 +21,44 @@ const UserPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // --- Zorg dat de pagina direct bovenaan start bij mount ---
+  useEffect(() => {
+    // voorkom browser scroll restoration (zodat browser niet automatisch terugzet)
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    // direct naar boven bij mount (geen smooth, instant)
+    window.scrollTo(0, 0);
+
+    // indien je ooit de default restore weer wilt inschakelen bij unmount:
+    return () => {
+      if ("scrollRestoration" in window.history) {
+        try {
+          window.history.scrollRestoration = "auto";
+        } catch (e) {
+          // noop
+        }
+      }
+    };
+  }, []);
+
   const fetchPlayer = () => {
     setLoading(true);
     setError(null);
     fetch(`https://tgrcode.com/mm2/user_info/${makerId}?noCaching=1`, {
       cache: "no-store",
+    })
+      .then((res) => {
+        if (!res.ok)
+          throw new Error("Failed to fetch player info, please wait a few seconds before refreshing.");
+        return res.text(); // belangrijk: niet direct .json()
       })
-    .then((res) => {
-      if (!res.ok)
-        throw new Error("Failed to fetch player info, please wait a few seconds before refreshing.");
-      return res.text(); // belangrijk: niet direct .json()
-    })
-    .then((text) => {
-      const data = JSONbig.parse(text); // pid blijft BigInt
-      setPlayerInfo(data);
-    })
-    .catch((err) => setError(err.message))
-    .finally(() => setLoading(false));
+      .then((text) => {
+        const data = JSONbig.parse(text); // pid blijft BigInt
+        setPlayerInfo(data);
+      })
+      .catch((err) => setError(err.message))
+      .finally(() => setLoading(false));
   };
 
   useEffect(() => {
@@ -45,32 +66,32 @@ const UserPage = () => {
     // eslint-disable-next-line
   }, [makerId]);
 
+  // --- LET OP: geen extra scroll effect hier (dus geen delayed scroll) ---
+
   if (loading)
-  return (
-    <div
-      style={{
-        position: "fixed",       // maakt het scherm vast
-        top: 0,
-        left: 0,
-        width: "100vw",
-        height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#000000ff",
-        overflow: "hidden",      // voorkomt scrollen
-        zIndex: 9999             // boven alles
-      }}
-    >
-      <img
-        src={process.env.PUBLIC_URL + "/LoadingMario.gif"}
-        alt="Loading..."
-        style={{ width: "50vw", height: "50vh", objectFit: "contain" }}
-      />
-    </div>
-  );
-
-
+    return (
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#000000ff",
+          overflow: "hidden",
+          zIndex: 9999,
+        }}
+      >
+        <img
+          src={process.env.PUBLIC_URL + "/LoadingMario.gif"}
+          alt="Loading..."
+          style={{ width: "50vw", height: "50vh", objectFit: "contain" }}
+        />
+      </div>
+    );
 
   if (error) return <div className="alert alert-danger">{error}</div>;
   if (!playerInfo) return <div>No data available.</div>;

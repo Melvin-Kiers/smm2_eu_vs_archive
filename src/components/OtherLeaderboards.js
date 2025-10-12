@@ -55,6 +55,14 @@ const OtherLeaderboards = () => {
     });
   };
 
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    window.scrollTo(0, 0); // direct, geen smooth
+  }, []);
+
+
   const scrollRight = () => {
     if (!sliderRef.current) return;
     sliderRef.current.scrollBy({
