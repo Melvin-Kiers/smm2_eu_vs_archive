@@ -2529,7 +2529,7 @@ section.more_leaderboards .playerName > div {
   text-align: left;
   color: #eee;
   margin-bottom: 8px;
-  margin-top: 80px;
+  margin-top: 60px;
 }
 
 .community-intro p {
@@ -2720,6 +2720,7 @@ section.mostPlayed-lb::before {
   position: absolute;
   top: 40px;
   left: 80%;
+  z-index: -1;
 }
 
 .section-img-bottom img {
@@ -2728,6 +2729,7 @@ section.mostPlayed-lb::before {
   position: absolute;
   bottom: 40px;
   left: 5%;
+  z-index: -1;
 }
 
 section.mostPlayed-lb {
@@ -2743,4 +2745,22 @@ section.mostPlayed-lb {
   color: white;
   font-size: 18px;
   font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  h2.community-intro-title {
+    font-size: 28px;
+  }
+  .title-sub-leaderboard h3.title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 1700px) {
+  .section-img-top img {
+    display: none;
+  }
+  .section-img-bottom img {
+    display: none;
+  }
 }

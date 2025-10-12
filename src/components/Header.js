@@ -42,7 +42,7 @@ export default function Hero() {
             o
           </span> Maker 2 <span className="orange">EU VS</span> Archive
         </h1>
-        <p>Bob it, Bobby.</p>
+        <p>This project is still in the works. Stay tuned!</p>
       </div>
 
       <img src={process.env.PUBLIC_URL + "/images/bottomGroundSet.png"} alt="" className="section-divider" />
