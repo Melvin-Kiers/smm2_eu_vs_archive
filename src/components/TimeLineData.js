@@ -1,8 +1,10 @@
 // src/data/timelineData.js
+const base = process.env.PUBLIC_URL;
+
 const timelineData = [
   {
     title: "THE EARLY ERA / Pre-VS discord",
-    image_pxArt: "/images/smb1_purpleToad.png",
+    image_pxArt: `${base}/images/smb1_purpleToad.png`,
     date: "June to August 2019",
     text: `EU VS began with the release of the game, on the 28th of June 2019. In the early days, there was no real established VS community, no known top players and no proper understanding of the VS system. The only thing that was really known about the game was that it would often lag, leading many to criticise the mode and avoid it.
     
@@ -12,7 +14,7 @@ const timelineData = [
   },
   {
     title: "THE GROWTH / The beginning of the VS community",
-    image_pxArt: "/images/smb1_yellowToad.png",
+    image_pxArt: `${base}/images/smb1_yellowToad.png`,
     date: "August to September 2019",
     text: `In late August 2019, Jelledot and other (mainly EU) players created the official VS discord, for people to talk about the game, play with each other, and discuss certain strategies. With more people joining, people learned more about optimal strategies, including grabbing out the door, duck jumping, and glitches including duck jumping into water. It was also discovered that pressing the home button could allow you to skip certain levels without losing points, commonly used to avoid hard losses on SMB3 and SMW. This method also gave rise to a meme in the EU VS community, where a player named JEREMYESP would disconnect every time he got in a lobby with a high rank, with people saying "Bye Jeremy" every time he appeared in a game with a high rank.
     
@@ -20,7 +22,7 @@ const timelineData = [
   },
   {
     title: "THE FIRST UPDATE / The race to 6k",
-    image_pxArt: "/images/smb1_pigeon.png",
+    image_pxArt: `${base}/images/smb1_pigeon.png`,
     date: "October to December 2019",
     text: `On the 1st of October, SMM2 would receive its first update, bringing the much-requested friend lobbies into the game. This allowed people to play VS or co-op with each other more easily, without worrying about rank, and potentially test levels for VS. This update also brought balance changes and fixes, most notably nerfing the hammer suit, making the pipe animation time consistent, and removing the ability to "dodge" levels at the title (doing so will make you lose points). The update also introduced “Pink S+”, which was achieved at 6000, although some believe that pink S+ existed in 1.0, although you needed 8000 to reach it, which had never been achieved by anyone until ikura did on the 10th of September 2021. Slyhunter7 was the only EU player to have achieved 6000 before it became “pink S+”.
     
@@ -29,7 +31,7 @@ const timelineData = [
   {
     title: "THE SECOND UPDATE / The journey to 6500",
     date: "December 2019 to April 2020",
-    image_pxArt: "/images/smb1_eraser.png",
+    image_pxArt: `${base}/images/smb1_eraser.png`,
     text: `This update was seen as a major game-changer for VS. On the 5th of December, a new update was released, adding a lot of new content such as dash panels, frozen coins, spike balls, and the Link powerup. A small but significant change was made for VS, making key door entry instant, instead of delaying the user for about a second. Before this update, grabbing players out of the key door was therefore very easy and often you could lose when you opened the key door first. Another notable change was an apparent change to the VS level algorithm, seemingly increasing the level quality, allowing more 4 lanes to appear more often. As a result, climbing became significantly easier and more people reached 6k, such as Haliinyan, MTP, Lini, and Zeya as he returned from break. On the 19th of December, iiPK became the first player in the world to break 7k, but EU was still far from this.
     
     As 2020 began, Enviosity returned to EU servers, motivating more people to play again. Zeya continued to climb, profiting off higher rank lobbies, eventually reclaiming #1 EU and climbing beyond 6200. Enviosity himself would climb while playing, and would technically become the first player to reach 6500 in EU lobbies in late January, however he would soon stop playing in EU lobbies forever. More players emerged and reached 6k, including Chatarrero and MinzBlatt. Zeya would reach a peak of 6429, but would then drop. Chatarrero became the next major competitor for #1, with him reaching 6400. MinzBlatt would also reach 6400, but he would drop hard and never returned to his peak. On the 15th of February 2020, Chatarrero finally reached 6500 and would be the first person to attempt to climb in the incredibly hard 6500+ region.
@@ -43,7 +45,7 @@ const timelineData = [
   {
     title: "THE FINAL MAJOR UPDATE / The journey to 7K",
     date: "April to July 2020",
-    image_pxArt: "/images/smb1_greenToad.png",
+    image_pxArt: `${base}/images/smb1_greenToad.png`,
     text: `On the 22nd of April, the final major update dropped, adding in new powerups such as the acorn, smb2 mushroom and P balloon, and new enemies, including mechakoopas and koopalings. Various tech was patched out in this update, such as being able to travel quickly in night sky theme, and duck jumping into water to gain a boost, although this still works in older levels. Along with this, it is thought this update changed the level algorithms again, and made certain levels much more common and show up frequently, infamous examples being "DIBS!" and "Hard Ice Skating". Tippi had since long stopped streaming regular VS, but a new era began as NA player watch's phone streams became popular, others without the necessary streaming materials started phone streams to show their gameplay. A new major streamer for EU VS named Joe Tendo began to gain popularity during this time, drawing more people to the versus community. d101 would also cause controversy in the community by making multiple alts at low ranks, often with the intention of stream sniping, which impeded others' abilities to climb.
     
     As doubt hung over d101, Zeya continued to push the undisputed peak further, eventually breaking 6600 on the 29th of April, and then 6700 on the 7th of May, achieving top 10 on the leaderboards. Zeya then dropped and went inactive for a while, during which time Chatarrero once again took the spotlight and reclaimed #1 on the 22nd of May, and on the 28th, he broke 6800. Chatarrero would climb closer and closer to 6900 but ended up dropping massively when he was just 5 points away. Qwerty also rose to the top in the 6800s, however he also could not reach 6900, until finally, Icay showed up and broke the 6900 barrier on the 11th of June. During this period, some players began to gain infamy for having terrible connections, with players such as aaron fun becoming a meme in the community because of this. Rojda would also start streaming and would become recognised in the community during this period.
@@ -52,7 +54,7 @@ const timelineData = [
   },
   {
     title: "POST 7K / The fall of d101",
-    image_pxArt: "/images/smb1_peach.png",
+    image_pxArt: `${base}/images/smb1_peach.png`,
     date: "July to December 2020",
     text: `After 7000 was finally achieved, nothing major really happened. On the 16th of August, d101 became the next 7k, followed by Lini on the 6th of September, and Exo on the 7th of September, after which, no one new would break 7k for a while. #1 EU would be challenged by Chatarrero and d101 over the next few months, with Chat peaking at 7150 and d101 at 7170.
     
@@ -62,7 +64,7 @@ const timelineData = [
   },
   {
     title: "BEYOND",
-    image_pxArt: "/images/smb1_toad.png",
+    image_pxArt: `${base}/images/smb1_toad.png`,
     date: "2021",
     text: `Since the beginning of 2021, major events have become less frequent. Some people have claimed that lobbies are getting harder to find as the game dies down, as various players quit the game. The owner of the VS discord, RVeld, started hosting “revival” days to get people to come back to versus for a day and make lobbies more active. Overall, many people stopped playing overtime/left the VS discord, although some players who were absent in 2020 returned, such as Francis and Adrylek. Despite d101 claiming otherwise, he would continue using his main to keep it on the leaderboards, holding the #1 spot most of the time, with some beginning to doubt his alt was even legitimate.
     
@@ -72,7 +74,7 @@ const timelineData = [
   },
   {
     title: "THE DUSK OF VS / 7463 will not succumb",
-    image_pxArt: "/images/smb1_redToad.png",
+    image_pxArt: `${base}/images/smb1_redToad.png`,
     date: "2022",
     text: `EU VS continued on during 2022. During the early months, many players would reach 7k for the first time, including Rndm_guy, Rafael, Nyami, Leon, Jauer, Constendo, Ka1b3ast, and Hoopa, greatly increasing the rate of high-rank lobbies. Zeya would also increase his lead, and would eventually reach a peak of 7463 on the 3rd of March, before he eventually dropped. Zeya would return to 7400 multiple times after dropping, but each attempt to break the peak proved to be a failure. Nyami, one of the players who reached 7000, later extended her peak, and around May, she became the second EU player to reach 7300. Suspicion also rose concerning Alistair and use of his alt, Stizy. Alistair would play under the Stizy account and would play incredibly toxic, such as using glitches to cause players to lose points, and Alistair would later admit to boosting on the Stizy account. The legitimacy of his main account is disputed.
     
@@ -82,19 +84,19 @@ const timelineData = [
   },
   {
     title: "2023",
-    image_pxArt: "/images/smb1_dog.png",
+    image_pxArt: `${base}/images/smb1_dog.png`,
     date: "2023",
     text: `Leon broke 7500 and reached a peak of 7619 before dropping. Shamal got 8k. Other players hit 7500, those being Austin, Cons and Kai. Zeya hit 7500 near the end of 2023. Isham Francis`
   },
   {
     title: "2024",
-    image_pxArt: "/images/smb1_toadette.png",
+    image_pxArt: `${base}/images/smb1_toadette.png`,
     date: "2024",
     text: `The first half of 2024 was dead, but players returned to the mode in the summer, giving it some life. Adry then made the Megatracker, a tool able to track everyone’s session within a day and display stats such as win rates, points gained, and disconnects. Adry reached 7500 near the end of 2024. The disconnect epidemic started where matches randomly didn’t start and sometimes these gave disconnect penalties unfairly.`
   },
   {
     title: "2025",
-    image_pxArt: "/images/smb1_builderMario.png",
+    image_pxArt: `${base}/images/smb1_builderMario.png`,
     date: "2025",
     text: `It was revealed that Nyami was actually Adry, after he reached over 7700 on that account. Zeya also reached 7700 and beat Austin’s peak of 7762, putting him at second in EU with 7770 points.`
   }
