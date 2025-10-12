@@ -88,10 +88,10 @@ const MostPlaysFull = () => {
           </div>
         </div>
         <div className="section-img-top">
-          <img className="yellowToad" src="../images/smb1_yellowToad.png"/>
+          <img className="yellowToad" src={process.env.PUBLIC_URL + "/images/smb1_yellowToad.png"}/>
         </div>
         <div className="section-img-bottom">
-          <img className="marioFlag" src="../images/data/marioFlag.png"/>
+          <img className="marioFlag" src={process.env.PUBLIC_URL + "/images/data/marioFlag.png"}/>
         </div>
       </section>
 
