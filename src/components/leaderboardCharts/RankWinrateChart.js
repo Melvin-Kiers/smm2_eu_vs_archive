@@ -11,6 +11,7 @@ import {
   Legend,
   PointElement,
   LineElement,
+  LineController,
 } from "chart.js";
 
 ChartJS.register(
@@ -21,7 +22,8 @@ ChartJS.register(
   Title,
   Legend,
   PointElement,
-  LineElement
+  LineElement,
+  LineController
 );
 
 const RankWinrateChart = ({ players }) => {
