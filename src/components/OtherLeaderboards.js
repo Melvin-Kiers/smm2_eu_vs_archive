@@ -55,14 +55,6 @@ const OtherLeaderboards = () => {
     });
   };
 
-  useEffect(() => {
-    if ("scrollRestoration" in window.history) {
-      window.history.scrollRestoration = "manual";
-    }
-    window.scrollTo(0, 0); // direct, geen smooth
-  }, []);
-
-
   const scrollRight = () => {
     if (!sliderRef.current) return;
     sliderRef.current.scrollBy({
@@ -87,24 +79,42 @@ const OtherLeaderboards = () => {
     });
   };
 
+  // 🔹 Scroll naar eerste slide nadat users geladen zijn
   useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const url = `https://tgrcode.com/mm2/user_info_multiple/${pids.join(",")}`;
-        const res = await fetch(url);
-        const text = await res.text();
-        const data = JSON.parse(text, (key, value) =>
-          key === "pid" ? String(value) : value
-        );
-        setUsers(data.users);
-      } catch (err) {
-        console.error("Error fetching multiple users:", err);
-      } finally {
-        setLoading(false);
+    if (!sliderRef.current) return;
+      const timeout = setTimeout(() => {
+        sliderRef.current.scrollTo({ left: 0, behavior: "auto" }); // direct, geen smooth
+        setActiveIndex(0); // bullets gelijk zetten
+      }, 50); // kleine delay zodat slider al gerenderd is
+      return () => clearTimeout(timeout);
+    }, [users]); // dependency op users, pas uitvoeren als data er is
+
+    useEffect(() => {
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
       }
-    };
-    fetchUsers();
-  }, []);
+      window.scrollTo(0, 0); // direct, geen smooth
+    }, []);
+
+    // 🔹 Fetch users (ongewijzigd)
+    useEffect(() => {
+      const fetchUsers = async () => {
+        try {
+          const url = `https://tgrcode.com/mm2/user_info_multiple/${pids.join(",")}`;
+          const res = await fetch(url);
+          const text = await res.text();
+          const data = JSON.parse(text, (key, value) =>
+            key === "pid" ? String(value) : value
+          );
+          setUsers(data.users);
+        } catch (err) {
+          console.error("Error fetching multiple users:", err);
+        } finally {
+          setLoading(false);
+        }
+      };
+      fetchUsers();
+    }, []);
 
   // 🔹 Voeg het fullscreen loading GIF toe
   if (loading)
